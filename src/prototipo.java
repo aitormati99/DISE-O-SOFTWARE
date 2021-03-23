@@ -17,9 +17,6 @@ public class prototipo extends JFrame {
 	private JPanel contentPane;
 	private JTextField Afiliacion;
 	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JLabel lblTema;
 
 	/**
 	 * Launch the application.
@@ -62,16 +59,6 @@ public class prototipo extends JFrame {
 		textField.setBounds(315, 237, 201, 39);
 		contentPane.add(textField);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(315, 312, 201, 39);
-		contentPane.add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(315, 397, 201, 39);
-		contentPane.add(textField_2);
-		
 		JLabel lblAfiliacion = new JLabel("AFILIACION");
 		lblAfiliacion.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblAfiliacion.setBounds(105, 165, 137, 20);
@@ -81,16 +68,6 @@ public class prototipo extends JFrame {
 		lblPais.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblPais.setBounds(105, 244, 137, 20);
 		contentPane.add(lblPais);
-		
-		JLabel lblEdad = new JLabel("EDAD");
-		lblEdad.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblEdad.setBounds(105, 319, 137, 20);
-		contentPane.add(lblEdad);
-		
-		lblTema = new JLabel("TEMA");
-		lblTema.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTema.setBounds(105, 404, 137, 20);
-		contentPane.add(lblTema);
 		
 		JButton btnAadir = new JButton("A\u00F1adir");
 		btnAadir.addActionListener(new ActionListener() {
@@ -108,28 +85,12 @@ public class prototipo extends JFrame {
 		button.setBounds(650, 240, 115, 29);
 		contentPane.add(button);
 		
-		JButton button_1 = new JButton("A\u00F1adir");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		button_1.setBounds(650, 315, 115, 29);
-		contentPane.add(button_1);
-		
-		JButton button_2 = new JButton("A\u00F1adir");
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		button_2.setBounds(650, 400, 115, 29);
-		contentPane.add(button_2);
-		
 		JButton btnDescargar = new JButton("Descargar");
 		btnDescargar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnDescargar.setBounds(415, 497, 115, 29);
+		btnDescargar.setBounds(359, 327, 115, 29);
 		contentPane.add(btnDescargar);
 		
 		JLabel lblNewLabel = new JLabel("DESARROLLADORES");
