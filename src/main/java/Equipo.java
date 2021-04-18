@@ -18,7 +18,7 @@ public class Equipo {
     private Date fecha_ini;
 
     @Element(column="EQUIPO_ID")
-    Collection<Proyecto> proyectos=new ArrayList<>();
+    List <Proyecto> proyectos=new ArrayList<>();
 
     @Join
     List<Usuario> usuarios=new ArrayList<>();

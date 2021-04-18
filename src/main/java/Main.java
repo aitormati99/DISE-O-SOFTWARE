@@ -266,7 +266,7 @@ public class Main {
         //CREO QUE APARTIR DE AQUI SE PONEN LOS DELETE, SELECT, UPDATE Y INSERT
 
         //ESTO PARECE UN SELECT
-        try
+        /*try
         {
             System.out.println("- Retrieving all the proyectos using an 'Extent'...");
 
@@ -479,7 +479,7 @@ public class Main {
             }
 
             pm.close();
-        }
+        }*/
 
         System.out.println("End of the Datanucleus + JDO example");
         System.out.println("====================================");

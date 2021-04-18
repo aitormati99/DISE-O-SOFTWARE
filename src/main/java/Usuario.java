@@ -19,7 +19,7 @@ public class Usuario {
     private String email;
 
     @Element(column="USER_ID")
-    Collection<Commit> commits=new ArrayList<>();
+    List <Commit> commits =new ArrayList<>();
 
     @Join
     List<Equipo> equipos=new ArrayList<>();

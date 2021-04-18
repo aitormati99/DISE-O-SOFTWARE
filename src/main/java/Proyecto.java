@@ -19,7 +19,7 @@ public class Proyecto {
     private Date proy_fecha_fin;
 
     @Element(column="PRO_ID")
-    Collection<Commit> commits=new ArrayList<>();
+    List <Commit> commits=new ArrayList<>();
 
 
     public Proyecto(int id_pro,String nombrepro,Date proy_fecha_ini, Date proy_fecha_fin)
