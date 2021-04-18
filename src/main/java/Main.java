@@ -8,7 +8,10 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
+import java.util.List;
+
 public class Main {
+
 
     public static void main(String args[])
     {
@@ -17,21 +20,22 @@ public class Main {
         System.out.println("=========================");
 
         //Create objects -  objects in memory
-        Usuario user1= new Usuario("anebollo", "sd1", "España","anebollo@gmail.com");
-        Usuario user2 = new Usuario("olatzgonzalez", "sd2", "España", "olatz.gonzalez1@opendeusto.es");
-        Usuario user3 = new Usuario("aitormati99", "sd2", "España", "aitor.matilla@opendeusto.es");
-        Usuario user4 = new Usuario("SarobeEzponda", "sd2", "España", "pablo.sarobe@opendeusto.es");
+        Usuario user1= new Usuario("anebollo", "swap", "España","anebollo@gmail.com");
+        Usuario user2 = new Usuario("olatzgonzalez", "uvesco", "España", "olatz.gonzalez1@opendeusto.es");
+        Usuario user3 = new Usuario("aitormati99", "deusto", "España", "aitor.matilla@opendeusto.es");
+        Usuario user4 = new Usuario("SarobeEzponda", "deusto", "España", "pablo.sarobe@opendeusto.es");
 
 
         //para los objetos equipo y proyecto
-        String datoFecha = "20/02/2021";
+
+        String datoFecha = "20-02-2021";
         Date fecha = null;
         try {
             fecha = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String datoFecha1 = "05/11/2020";
+        String datoFecha1 = "05-11-2020";
         Date fecha1 = null;
         try {
             fecha1 = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
@@ -39,7 +43,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        String datoFecha2 = "10/04/2020";
+        String datoFecha2 = "10-04-2020";
         Date fecha2 = null;
         try {
             fecha = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
@@ -50,14 +54,14 @@ public class Main {
         Equipo equipo2 = new Equipo(2, fecha1);
         Equipo equipo3 = new Equipo(3, fecha2);
 
-        String datoFecha3 = "10/04/2020";
+        String datoFecha3 = "10-04-2020";
         Date fecha3 = null;
         try {
             fecha = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String datoFecha4 = "10/06/2020";
+        String datoFecha4 = "10-06-2020";
         Date fecha4 = null;
         try {
             fecha = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
@@ -65,14 +69,14 @@ public class Main {
             e.printStackTrace();
         }
 
-        String datoFecha5 = "13/11/2020";
+        String datoFecha5 = "13-11-2020";
         Date fecha5 = null;
         try {
             fecha = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String datoFecha6 = "10/02/2021";
+        String datoFecha6 = "10-02-2021";
         Date fecha6 = null;
         try {
             fecha = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
@@ -80,14 +84,14 @@ public class Main {
             e.printStackTrace();
         }
 
-        String datoFecha7 = "11/04/2020";
+        String datoFecha7 = "11-04-2020";
         Date fecha7 = null;
         try {
             fecha = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String datoFecha8 = "11/11/2020";
+        String datoFecha8 = "11-11-2020";
         Date fecha8 = null;
         try {
             fecha = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
@@ -95,7 +99,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        String datoFecha9 = "10/01/2021";
+        String datoFecha9 = "10-01-2021";
         Date fecha9 = null;
         try {
             fecha = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
@@ -103,7 +107,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        String datoFecha10 = "23/03/2021";
+        String datoFecha10 = "23-03-2021";
         Date fecha10= null;
         try {
             fecha = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(datoFecha);
@@ -215,38 +219,27 @@ public class Main {
             pm.makePersistent(equipo1);
             pm.makePersistent(equipo2);
             pm.makePersistent(equipo3);
-            pm.makePersistent(proyecto1);
-            pm.makePersistent(proyecto2);
-            pm.makePersistent(proyecto3);
-            pm.makePersistent(proyecto4);
-            pm.makePersistent(commit1);
-            pm.makePersistent(commit2);
-            pm.makePersistent(commit3);
-            pm.makePersistent(commit4);
-            pm.makePersistent(commit5);
-            pm.makePersistent(commit6);
-            pm.makePersistent(commit7);
-            pm.makePersistent(commit8);
-            pm.makePersistent(commit9);
-            pm.makePersistent(commit10);
-            pm.makePersistent(commit11);
-            pm.makePersistent(commit12);
+            //pm.makePersistent(proyecto1);
+            //pm.makePersistent(proyecto2);
+            //pm.makePersistent(proyecto3);
+            //pm.makePersistent(proyecto4);
+            //pm.makePersistent(commit1);
+            //pm.makePersistent(commit2);
+            //pm.makePersistent(commit3);
+            //pm.makePersistent(commit4);
+            //pm.makePersistent(commit5);
+            //pm.makePersistent(commit6);
+            //pm.makePersistent(commit7);
+            //pm.makePersistent(commit8);
+            //pm.makePersistent(commit9);
+            //pm.makePersistent(commit10);
+            //pm.makePersistent(commit11);
+            //pm.makePersistent(commit12);
 
 
             //End the transaction
             tx.commit();
 
-            //System.out.println("  * Objects and their relationships have been stored!");
-            //System.out.println("- Transferring $100");
-            //System.out.println("    - " + account1.getBankName() + "($ " + account1.getBalance() + ")");
-            //System.out.println("Open Date: " + account1.getOpenDate());
-            //System.out.println("    + " + account2.getBankName() + "($ " + account2.getBalance() + ")");
-            //account1.debit(100);
-            //account2.credit(100);
-
-           // System.out.println("  * Money transferred!");
-            //System.out.println("    - " + account1.getBankName() + "($ " + account1.getBalance() + ")");
-           // System.out.println("    + " + account2.getBankName() + "($ " + account2.getBalance() + ")");
         }
 
         catch (Exception ex)
@@ -275,7 +268,7 @@ public class Main {
         //ESTO PARECE UN SELECT
         try
         {
-            System.out.println("- Retrieving all the accounts using an 'Extent'...");
+            System.out.println("- Retrieving all the proyectos using an 'Extent'...");
 
             //Get the Persistence Manager
             pm = pmf.getPersistenceManager();
@@ -286,11 +279,11 @@ public class Main {
             //Start the transaction
             tx.begin();
 
-            Extent<Account> extent = pm.getExtent(Account.class, true);
+            Extent<Proyecto> extent = pm.getExtent(Proyecto.class, true);
 
-            for (Account account : extent)
+            for (Proyecto proyecto : extent)
             {
-                System.out.println("  -> " + account);
+                System.out.println("  -> " + proyecto);
             }
 
             //Notice the change in the accounts' balances
@@ -300,7 +293,7 @@ public class Main {
 
         catch (Exception ex)
         {
-            System.err.println(" $ Error retrieving accounts using an 'Extent': " + ex.getMessage());
+            System.err.println(" $ Error retrieving proyectos using an 'Extent': " + ex.getMessage());
         }
 
         finally
@@ -319,7 +312,7 @@ public class Main {
         //ESTO PARECE UN SELECT
         try
         {
-            System.out.println("- Retrieving accounts with balace > 200.0 using a 'Query'...");
+            System.out.println("- Retrieving commit with addition_lines > 10 using a 'Query'...");
 
             //Get the Persistence Manager
             pm = pmf.getPersistenceManager();
@@ -330,24 +323,24 @@ public class Main {
             //Start the transaction
             tx.begin();
 
-            Query<Account> query = pm.newQuery(Account.class);
-            query.setFilter("balance > 200.0");
+            Query<Commit> query = pm.newQuery(Commit.class);
+            query.setFilter("addition_lines > 10");
 
             @SuppressWarnings("unchecked")
-            List<Account> accounts = (List<Account>) query.execute();
+            List<Commit> commits = (List<Commit>) query.execute();
 
             //End the transaction
             tx.commit();
 
-            for (Account account : accounts)
+            for (Commit commit : commits)
             {
-                System.out.println("  -> " + account.getUser().getFullName() + " - " + account.getBankName());
+                System.out.println("  -> " + commit.getId_commit());
             }
         }
 
         catch (Exception ex)
         {
-            System.err.println(" $ Error retrieving accounts using a 'Query': " + ex.getMessage());
+            System.err.println(" $ Error retrieving commit using a 'Query': " + ex.getMessage());
         }
 
         finally
@@ -365,7 +358,7 @@ public class Main {
         //ESTO PARECE UN DELETE
         try
         {
-            System.out.println("- Deleting 'User->Address' relation...");
+            System.out.println("- Deleting 'Usuarios->equipos' relation...");
 
             //Get the Persistence Manager
             pm = pmf.getPersistenceManager();
@@ -376,16 +369,16 @@ public class Main {
             //Start the transaction
             tx.begin();
 
-            Query<User> query = pm.newQuery(User.class);
+            Query<Usuario> query = pm.newQuery(Usuario.class);
 
             @SuppressWarnings("unchecked")
-            List<User> users = (List<User>) query.execute();
+            List<Usuario> users = (List<Usuario>) query.execute();
 
-            for (User user : users)
+            for (Usuario user : users)
             {
-                System.out.println("  -> Retrieved user: " + user.getFullName());
-                System.out.println("     + Removing user from the addresses ... ");
-                user.removeUserFromAddresses();
+                System.out.println("  -> Retrieved user: " + user.getUserName());
+                System.out.println("     + Removing user from equipos ... ");
+                user.removeEquipos();
             }
 
             //End the transaction
@@ -394,7 +387,7 @@ public class Main {
 
         catch (Exception ex)
         {
-            System.err.println(" $ Error deleting 'User->Address' relation: " + ex.getMessage());
+            System.err.println(" $ Error deleting 'Usuarios->equipos' relation: " + ex.getMessage());
         }
 
         finally
@@ -421,13 +414,13 @@ public class Main {
 
             //Delete users from DB
 
-            // As we are considering accounts as dependents on user - CASCADING BEHAVIOUR - ACCOUNTS DELETED
-            Query<User> query1 = pm.newQuery(User.class);
-            System.out.println(" * '" + query1.deletePersistentAll() + "' users and their accounts deleted from the DB.");
+            // As we are considering equipo as dependents on user - CASCADING BEHAVIOUR - ACCOUNTS DELETED
+            Query<Usuario> query1 = pm.newQuery(Usuario.class);
+            System.out.println(" * '" + query1.deletePersistentAll() + "' users and their equipos deleted from the DB.");
 
-            //Delete addresses from DB
-            Query<Address> query2 = pm.newQuery(Address.class);
-            System.out.println(" * '" + query2.deletePersistentAll() + "' addresses deleted from the DB.");
+            //Delete equipo from DB
+            Query<Equipo> query2 = pm.newQuery(Equipo.class);
+            System.out.println(" * '" + query2.deletePersistentAll() + "' equipos deleted from the DB.");
 
             //End the transaction
             tx.commit();
@@ -461,13 +454,13 @@ public class Main {
             tx.begin();
 
             @SuppressWarnings("unchecked")
-            Query<Product> productsQuery = pm.newQuery("SELECT FROM " + Product.class.getName() + " WHERE price < 150.00 ORDER BY price ASC");
+            Query<Usuario> userQuery = pm.newQuery("SELECT FROM " + Usuario.class.getName() + " WHERE afiliacion='deusto' 150.00 ORDER BY user_name ASC");
 
-            for (Product product : productsQuery.executeList())
+            for (Usuario usuario : userQuery.executeList())
             {
-                System.out.println("- Selected from db: " + product.name);
-                pm.deletePersistent(product);
-                System.out.println("- Deleted from db: " + product.name);
+                System.out.println("- Selected from db: " + usuario.getUserName());
+                pm.deletePersistent(usuario);
+                System.out.println("- Deleted from db: " + usuario.getUserName());
             }
 
             tx.commit();

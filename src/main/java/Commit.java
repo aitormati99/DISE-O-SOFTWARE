@@ -26,7 +26,6 @@ public class Commit {
 
 
     //metodos varios y get y set
-    //nose si insert, delete, update y select aqui o en el main
 
     public int getId_commit()
     {

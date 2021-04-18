@@ -4,13 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>org.datanucleus</groupId>
     <artifactId>Investigadores</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <version>3.0</version>
+
+
+
+    <name>DataNucleus AccessPlatform Tutorial for JDO</name>
+    <url>http://www.datanucleus.org</url>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <!--<maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target> -->
+        <config.files.dir>src/main/resources</config.files.dir>
+        <encoding>UTF-8</encoding>
     </properties>
 
     <dependencies>
@@ -116,8 +124,28 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
 
+                <configuration>
+                    <mainClass>Main</mainClass>
+                    <systemProperties>
+                        <systemProperty>
+                            <key>log4j.configuration</key>
+                            <value>file:${config.files.dir}/log4j.properties</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
 
             </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>${basedir}/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+            </plugin>
+
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

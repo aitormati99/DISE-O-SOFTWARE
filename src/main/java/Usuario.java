@@ -108,6 +108,11 @@ public class Usuario {
         equipos.remove(equipo);
     }
 
+    public void removeEquipos()
+    {
+        equipos.removeAll(this.equipos);
+    }
+
     public List<Equipo> getEquipos()
     {
         return equipos;
