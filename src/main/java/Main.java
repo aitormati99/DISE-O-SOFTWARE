@@ -219,22 +219,22 @@ public class Main {
             pm.makePersistent(equipo1);
             pm.makePersistent(equipo2);
             pm.makePersistent(equipo3);
-            //pm.makePersistent(proyecto1);
-            //pm.makePersistent(proyecto2);
-            //pm.makePersistent(proyecto3);
-            //pm.makePersistent(proyecto4);
-            //pm.makePersistent(commit1);
-            //pm.makePersistent(commit2);
-            //pm.makePersistent(commit3);
-            //pm.makePersistent(commit4);
-            //pm.makePersistent(commit5);
-            //pm.makePersistent(commit6);
-            //pm.makePersistent(commit7);
-            //pm.makePersistent(commit8);
-            //pm.makePersistent(commit9);
-            //pm.makePersistent(commit10);
-            //pm.makePersistent(commit11);
-            //pm.makePersistent(commit12);
+            pm.makePersistent(proyecto1);
+            pm.makePersistent(proyecto2);
+            pm.makePersistent(proyecto3);
+            pm.makePersistent(proyecto4);
+            pm.makePersistent(commit1);
+            pm.makePersistent(commit2);
+            pm.makePersistent(commit3);
+            pm.makePersistent(commit4);
+            pm.makePersistent(commit5);
+            pm.makePersistent(commit6);
+            pm.makePersistent(commit7);
+            pm.makePersistent(commit8);
+            pm.makePersistent(commit9);
+            pm.makePersistent(commit10);
+            pm.makePersistent(commit11);
+            pm.makePersistent(commit12);
 
 
             //End the transaction
