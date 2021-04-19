@@ -2,6 +2,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import javax.jdo.annotations.Order;
+import javax.jdo.annotations.Extension;
 
 
 import javax.jdo.annotations.PersistenceCapable;

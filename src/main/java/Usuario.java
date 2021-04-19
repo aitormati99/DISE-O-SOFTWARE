@@ -8,6 +8,8 @@ import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Element;
+import javax.jdo.annotations.Order;
+import javax.jdo.annotations.Extension;
 
 @PersistenceCapable
 public class Usuario {
