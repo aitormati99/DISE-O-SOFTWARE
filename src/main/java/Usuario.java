@@ -21,8 +21,10 @@ public class Usuario {
     @Element(column="USER_ID")
     List <Commit> commits =new ArrayList<>();
 
-    @Join
+    @Persistent
+    @Order(extensions=@Extension(vendorName="datanucleus", key="list-ordering", value="id ASC"))
     List<Equipo> equipos=new ArrayList<>();
+
 
     public Usuario(String user_name, String afiliacion, String pais, String email)
     {
