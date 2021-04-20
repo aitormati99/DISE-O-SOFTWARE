@@ -18,8 +18,9 @@ public class Proyecto {
     private Date proy_fecha_ini;
     private Date proy_fecha_fin;
 
-    @Element(column="PRO_ID")
-    List <Commit> commits=new ArrayList<>();
+
+    @Persistent(mappedBy="project")
+    List <Commit> commits =new ArrayList<>();
 
 
     public Proyecto(int id_pro,String nombrepro,Date proy_fecha_ini, Date proy_fecha_fin)
@@ -31,6 +32,9 @@ public class Proyecto {
 
     }
 
+    public Proyecto() {
+
+    }
 
 
     //metodos varios y get y set

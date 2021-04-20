@@ -15,6 +15,9 @@ public class Commit {
     @Column(name="USER_ID")
     Usuario user = new Usuario();
 
+    @Column(name="PROJECT_ID")
+    Proyecto project = new Proyecto();
+
 
     public Commit(int id_commit, int addition_lines, int deletion_lines)
     {
