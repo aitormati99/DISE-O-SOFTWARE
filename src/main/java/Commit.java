@@ -2,10 +2,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Join;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
+import javax.jdo.annotations.*;
 
 @PersistenceCapable
 public class Commit {
@@ -14,6 +11,9 @@ public class Commit {
     private int id_commit;
     private int addition_lines;
     private int deletion_lines;
+
+    @Column(name="USER_ID")
+    Usuario user = new Usuario();
 
 
     public Commit(int id_commit, int addition_lines, int deletion_lines)

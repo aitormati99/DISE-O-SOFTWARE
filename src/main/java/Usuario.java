@@ -20,7 +20,7 @@ public class Usuario {
     private String pais;
     private String email;
 
-    @Element(column="USER_ID")
+    @Persistent(mappedBy="user")
     List <Commit> commits =new ArrayList<>();
 
     @Persistent
@@ -37,6 +37,9 @@ public class Usuario {
 
     }
 
+    public Usuario() {
+
+    }
 
     //metodos varios y get y set
     //nose si insert, delete, update y select aqui o en el main
