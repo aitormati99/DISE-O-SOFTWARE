@@ -21,6 +21,7 @@ public class Usuario {
     private String email;
 
     @Persistent(mappedBy="user")
+    @Order(extensions=@Extension(vendorName="datanucleus", key="list-ordering", value="id_commit ASC"))
     List <Commit> commits =new ArrayList<>();
 
     @Persistent

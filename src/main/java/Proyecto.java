@@ -3,11 +3,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Join;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
-import javax.jdo.annotations.Element;
+import javax.jdo.annotations.*;
 
 @PersistenceCapable
 public class Proyecto {
@@ -20,6 +16,7 @@ public class Proyecto {
 
 
     @Persistent(mappedBy="project")
+    @Order(extensions = @Extension(vendorName="datanucleus",key="list-ordering", value="id_commit ASC"))
     List <Commit> commits =new ArrayList<>();
 
 
