@@ -380,10 +380,10 @@ public class Main {
             }
         }
 
-    //UPDATE
+        //UPDATE
         try
         {
-            System.out.println("- Retrieving user with id_commit = 4 using a 'Query'...");
+            System.out.println("- Retrieving commit with id_commit = 4 using a 'Query'...");
             //Get the Persistence Manager
             pm = fm.getPersistenceManager();
             //Obtain the current transaction
@@ -405,6 +405,47 @@ public class Main {
         }
         catch (Exception ex)
         {
+            System.err.println(" $ Error updating commit using a 'Query': " + ex.getMessage());
+        }
+        finally
+        {
+            if (tx != null && tx.isActive())
+            {
+                tx.rollback();
+            }
+            if (pm != null && !pm.isClosed()) {
+                pm.close();
+            }
+        }
+
+        //UPDATE
+        try
+        {
+            System.out.println("- Retrieving user with user_name == anebollo using a 'Query'...");
+            //Get the Persistence Manager
+            pm = fm.getPersistenceManager();
+            //Obtain the current transaction
+            tx = pm.currentTransaction();
+            //Start the transaction
+            tx.begin();
+            Query<Usuario> query = pm.newQuery(Usuario.class);
+            String nombre ="anebollo";
+            query.setFilter("user_name == \"anebollo\"");
+            @SuppressWarnings("unchecked")
+            List<Usuario> users = (List<Usuario>) query.execute();
+            //End the transaction
+            tx.commit();
+            for (Usuario user : users)
+            {
+                user.setPais("Francia");
+                pm.makePersistent(user);
+                System.out.println("  -> " + user.getUserName()+ "  -> " + user.getPais());
+            }
+
+
+        }
+        catch (Exception ex)
+        {
             System.err.println(" $ Error updating user using a 'Query': " + ex.getMessage());
         }
         finally
@@ -417,6 +458,7 @@ public class Main {
                 pm.close();
             }
         }
+
         /*//DELETE
         try
         {
