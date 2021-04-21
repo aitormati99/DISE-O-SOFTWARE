@@ -345,6 +345,7 @@ public class Main {
             }
         }
         //DELETE
+            
         try
         {
             System.out.println("- Deleting 'Usuarios->equipos' relation...");
@@ -379,6 +380,8 @@ public class Main {
                 pm.close();
             }
         }
+
+
 
         //UPDATE
         try
@@ -429,7 +432,6 @@ public class Main {
             //Start the transaction
             tx.begin();
             Query<Usuario> query = pm.newQuery(Usuario.class);
-            String nombre ="anebollo";
             query.setFilter("user_name == \"anebollo\"");
             @SuppressWarnings("unchecked")
             List<Usuario> users = (List<Usuario>) query.execute();
@@ -459,23 +461,56 @@ public class Main {
             }
         }
 
-        /*//DELETE
+
+        // UN SELECT y DELETE
+        /*try
+        {
+            //Select data using a Query
+            System.out.println("- delete with select using a 'Query'...");
+            pm = fm.getPersistenceManager();
+            tx = pm.currentTransaction();
+            tx.begin();
+            @SuppressWarnings("unchecked")
+            Query<Proyecto> userQuery = pm.newQuery("SELECT FROM " + Proyecto.class.getName() + " WHERE id_pro<3 ORDER BY id_pro ASC");
+            for (Proyecto pro : userQuery.executeList())
+            {
+                System.out.println("- Selected from db: " + pro.getnombrepro());
+                pm.deletePersistent(pro);
+                System.out.println("- Deleted from db: " + pro.getnombrepro());
+            }
+            tx.commit();
+        }
+        catch(Exception ex)
+        {
+            System.err.println("* Exception executing a query: " + ex.getMessage());
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+        */
+        //DELETE
         try
         {
             System.out.println("- Cleaning the DB...");
             //Get the Persistence Manager
-            pm = pmf.getPersistenceManager();
+            pm = fm.getPersistenceManager();
             //Obtain the current transaction
             tx = pm.currentTransaction();
             //Start the transaction
             tx.begin();
             //Delete users from DB
             // As we are considering equipo as dependents on user - CASCADING BEHAVIOUR - ACCOUNTS DELETED
+            Query<Equipo> query2 = pm.newQuery(Equipo.class);
+            System.out.println(" * '" + query2.deletePersistentAll() + "' equipos deleted from the DB.");
             Query<Usuario> query1 = pm.newQuery(Usuario.class);
             System.out.println(" * '" + query1.deletePersistentAll() + "' users and their equipos deleted from the DB.");
             //Delete equipo from DB
-            Query<Equipo> query2 = pm.newQuery(Equipo.class);
-            System.out.println(" * '" + query2.deletePersistentAll() + "' equipos deleted from the DB.");
+
             //End the transaction
             tx.commit();
         }
@@ -495,35 +530,7 @@ public class Main {
                 pm.close();
             }
         }
-        //PARECE UN SELECT
-        try
-        {
-            //Select data using a Query
-            pm = pmf.getPersistenceManager();
-            tx = pm.currentTransaction();
-            tx.begin();
-            @SuppressWarnings("unchecked")
-            Query<Usuario> userQuery = pm.newQuery("SELECT FROM " + Usuario.class.getName() + " WHERE afiliacion='deusto' 150.00 ORDER BY user_name ASC");
-            for (Usuario usuario : userQuery.executeList())
-            {
-                System.out.println("- Selected from db: " + usuario.getUserName());
-                pm.deletePersistent(usuario);
-                System.out.println("- Deleted from db: " + usuario.getUserName());
-            }
-            tx.commit();
-        }
-        catch(Exception ex)
-        {
-            System.err.println("* Exception executing a query: " + ex.getMessage());
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }*/
+
 
             System.out.println("End of the Datanucleus + JDO example");
             System.out.println("====================================");
