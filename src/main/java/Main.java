@@ -380,8 +380,45 @@ public class Main {
             }
         }
 
+    //UPDATE
 
-        /*//ESTO PARECE UN DELETE
+       /* try
+        {
+            System.out.println("- Retrieving user with id_commit = 4 using a 'Query'...");
+            //Get the Persistence Manager
+            pm = fm.getPersistenceManager();
+            //Obtain the current transaction
+            tx = pm.currentTransaction();
+            //Start the transaction
+            tx.begin();
+            Query<Usuario> query = pm.newQuery(Usuario.class);
+            query.setFilter("addition_lines > 30");
+            @SuppressWarnings("unchecked")
+            List<Commit> commits = (List<Commit>) query.execute();
+            //End the transaction
+            tx.commit();
+            for (Commit commit : commits)
+            {
+                commit.setAdditionlines(35);
+                System.out.println("  -> " + commit.getAdditionlines());
+            }
+
+        }
+        catch (Exception ex)
+        {
+            System.err.println(" $ Error updating user using a 'Query': " + ex.getMessage());
+        }
+        finally
+        {
+            if (tx != null && tx.isActive())
+            {
+                tx.rollback();
+            }
+            if (pm != null && !pm.isClosed()) {
+                pm.close();
+            }
+        }*/
+        /*//DELETE
         try
         {
             System.out.println("- Cleaning the DB...");
