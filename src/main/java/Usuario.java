@@ -25,7 +25,7 @@ public class Usuario {
     List <Commit> commits =new ArrayList<>();
 
     @Persistent
-    @Order(extensions=@Extension(vendorName="datanucleus", key="list-ordering", value="id ASC"))
+    @Order(extensions=@Extension(vendorName="datanucleus", key="list-ordering", value="id_equipo ASC"))
     List<Equipo> equipos=new ArrayList<>();
 
 

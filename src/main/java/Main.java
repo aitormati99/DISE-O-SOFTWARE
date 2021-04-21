@@ -222,7 +222,6 @@ public class Main {
                 commit11.setPro(proyecto4);
                 commit12.setUser(user4);
                 commit12.setPro(proyecto4);
-                //NOSE SI HAY QUE HACER EL MAKEPERSISTENTE DE TODOS
 
                 pm.makePersistent(user1);
                 pm.makePersistent(user2);
@@ -247,9 +246,6 @@ public class Main {
                 pm.makePersistent(commit10);
                 pm.makePersistent(commit11);
                 pm.makePersistent(commit12);
-
-
-
 
                 System.out.println("- Inserted into db: " );
 
@@ -277,12 +273,12 @@ public class Main {
             pm = fm.getPersistenceManager();
             tx = pm.currentTransaction();
 
-            //ESTO PARECE UN SELECT
-        /*try
+            //SELECT
+        try
         {
             System.out.println("- Retrieving all the proyectos using an 'Extent'...");
             //Get the Persistence Manager
-            pm = pmf.getPersistenceManager();
+            pm = fm.getPersistenceManager();
             //Obtain the current transaction
             tx = pm.currentTransaction();
             //Start the transaction
@@ -311,12 +307,14 @@ public class Main {
                 pm.close();
             }
         }
-        //ESTO PARECE UN SELECT
+
+        //SELECT
+
         try
         {
             System.out.println("- Retrieving commit with addition_lines > 10 using a 'Query'...");
             //Get the Persistence Manager
-            pm = pmf.getPersistenceManager();
+            pm = fm.getPersistenceManager();
             //Obtain the current transaction
             tx = pm.currentTransaction();
             //Start the transaction
@@ -346,12 +344,12 @@ public class Main {
                 pm.close();
             }
         }
-        //ESTO PARECE UN DELETE
+        //DELETE
         try
         {
             System.out.println("- Deleting 'Usuarios->equipos' relation...");
             //Get the Persistence Manager
-            pm = pmf.getPersistenceManager();
+            pm = fm.getPersistenceManager();
             //Obtain the current transaction
             tx = pm.currentTransaction();
             //Start the transaction
@@ -381,7 +379,9 @@ public class Main {
                 pm.close();
             }
         }
-        //ESTO PARECE UN DELETE
+
+
+        /*//ESTO PARECE UN DELETE
         try
         {
             System.out.println("- Cleaning the DB...");

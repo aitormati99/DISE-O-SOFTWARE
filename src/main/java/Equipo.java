@@ -25,7 +25,7 @@ public class Equipo {
     @Persistent(table="USUARIOS-EQUIPOS")
     @Join(column="EQUPO_ID")
     @Element(column="USUARIO_ID")
-    @Order(extensions=@Extension(vendorName="datanucleus", key="list-ordering", value="id ASC"))
+    @Order(extensions=@Extension(vendorName="datanucleus", key="list-ordering", value="user_name ASC"))
     List<Usuario> usuarios=new ArrayList<>();
 
     public Equipo(int id_equipo, Date fecha_ini)
