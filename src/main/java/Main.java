@@ -381,8 +381,7 @@ public class Main {
         }
 
     //UPDATE
-
-       /* try
+        try
         {
             System.out.println("- Retrieving user with id_commit = 4 using a 'Query'...");
             //Get the Persistence Manager
@@ -391,7 +390,7 @@ public class Main {
             tx = pm.currentTransaction();
             //Start the transaction
             tx.begin();
-            Query<Usuario> query = pm.newQuery(Usuario.class);
+            Query<Commit> query = pm.newQuery(Commit.class);
             query.setFilter("addition_lines > 30");
             @SuppressWarnings("unchecked")
             List<Commit> commits = (List<Commit>) query.execute();
@@ -400,9 +399,9 @@ public class Main {
             for (Commit commit : commits)
             {
                 commit.setAdditionlines(35);
+                pm.makePersistent(commit);
                 System.out.println("  -> " + commit.getAdditionlines());
             }
-
         }
         catch (Exception ex)
         {
@@ -417,7 +416,7 @@ public class Main {
             if (pm != null && !pm.isClosed()) {
                 pm.close();
             }
-        }*/
+        }
         /*//DELETE
         try
         {
