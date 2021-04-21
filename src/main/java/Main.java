@@ -176,6 +176,13 @@ public class Main {
                 user1.addCommit(commit1);
                 user3.addCommit(commit2);
                 user4.addCommit(commit3);
+                commit1.setUser(user1);
+                commit1.setPro(proyecto1);
+                commit2.setUser(user3);
+                commit2.setPro(proyecto1);
+                commit3.setUser(user4);
+                commit3.setPro(proyecto1);
+
 
                 proyecto2.addCommit(commit4);
                 proyecto2.addCommit(commit5);
@@ -183,6 +190,12 @@ public class Main {
                 user1.addCommit(commit4);
                 user3.addCommit(commit5);
                 user4.addCommit(commit6);
+                commit4.setUser(user1);
+                commit4.setPro(proyecto2);
+                commit5.setUser(user3);
+                commit5.setPro(proyecto2);
+                commit6.setUser(user4);
+                commit6.setPro(proyecto2);
 
                 proyecto3.addCommit(commit7);
                 proyecto3.addCommit(commit8);
@@ -190,13 +203,25 @@ public class Main {
                 user1.addCommit(commit7);
                 user3.addCommit(commit8);
                 user3.addCommit(commit9);
+                commit7.setUser(user1);
+                commit7.setPro(proyecto3);
+                commit8.setUser(user3);
+                commit8.setPro(proyecto3);
+                commit9.setUser(user3);
+                commit9.setPro(proyecto3);
 
                 proyecto4.addCommit(commit10);
                 proyecto4.addCommit(commit11);
                 proyecto4.addCommit(commit12);
                 user2.addCommit(commit10);
                 user2.addCommit(commit11);
-                user2.addCommit(commit12);
+                user4.addCommit(commit12);
+                commit10.setUser(user2);
+                commit10.setPro(proyecto4);
+                commit11.setUser(user2);
+                commit11.setPro(proyecto4);
+                commit12.setUser(user4);
+                commit12.setPro(proyecto4);
                 //NOSE SI HAY QUE HACER EL MAKEPERSISTENTE DE TODOS
 
                 pm.makePersistent(user1);
@@ -256,138 +281,106 @@ public class Main {
         /*try
         {
             System.out.println("- Retrieving all the proyectos using an 'Extent'...");
-
             //Get the Persistence Manager
             pm = pmf.getPersistenceManager();
-
             //Obtain the current transaction
             tx = pm.currentTransaction();
-
             //Start the transaction
             tx.begin();
-
             Extent<Proyecto> extent = pm.getExtent(Proyecto.class, true);
-
             for (Proyecto proyecto : extent)
             {
                 System.out.println("  -> " + proyecto);
             }
-
             //Notice the change in the accounts' balances
             //End the transaction
             tx.commit();
         }
-
         catch (Exception ex)
         {
             System.err.println(" $ Error retrieving proyectos using an 'Extent': " + ex.getMessage());
         }
-
         finally
         {
             if (tx != null && tx.isActive())
             {
                 tx.rollback();
             }
-
             if (pm != null && !pm.isClosed())
             {
                 pm.close();
             }
         }
-
         //ESTO PARECE UN SELECT
         try
         {
             System.out.println("- Retrieving commit with addition_lines > 10 using a 'Query'...");
-
             //Get the Persistence Manager
             pm = pmf.getPersistenceManager();
-
             //Obtain the current transaction
             tx = pm.currentTransaction();
-
             //Start the transaction
             tx.begin();
-
             Query<Commit> query = pm.newQuery(Commit.class);
             query.setFilter("addition_lines > 10");
-
             @SuppressWarnings("unchecked")
             List<Commit> commits = (List<Commit>) query.execute();
-
             //End the transaction
             tx.commit();
-
             for (Commit commit : commits)
             {
                 System.out.println("  -> " + commit.getId_commit());
             }
         }
-
         catch (Exception ex)
         {
             System.err.println(" $ Error retrieving commit using a 'Query': " + ex.getMessage());
         }
-
         finally
         {
             if (tx != null && tx.isActive())
             {
                 tx.rollback();
             }
-
             if (pm != null && !pm.isClosed()) {
                 pm.close();
             }
         }
-
         //ESTO PARECE UN DELETE
         try
         {
             System.out.println("- Deleting 'Usuarios->equipos' relation...");
-
             //Get the Persistence Manager
             pm = pmf.getPersistenceManager();
-
             //Obtain the current transaction
             tx = pm.currentTransaction();
-
             //Start the transaction
             tx.begin();
-
             Query<Usuario> query = pm.newQuery(Usuario.class);
-
             @SuppressWarnings("unchecked")
             List<Usuario> users = (List<Usuario>) query.execute();
-
             for (Usuario user : users)
             {
                 System.out.println("  -> Retrieved user: " + user.getUserName());
                 System.out.println("     + Removing user from equipos ... ");
                 user.removeEquipos();
             }
-
             //End the transaction
             tx.commit();
         }
-
         catch (Exception ex)
         {
             System.err.println(" $ Error deleting 'Usuarios->equipos' relation: " + ex.getMessage());
         }
-
         finally
         {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-
             if (pm != null && !pm.isClosed()) {
                 pm.close();
             }
         }
-
         //ESTO PARECE UN DELETE
         try
         {
@@ -398,40 +391,32 @@ public class Main {
             tx = pm.currentTransaction();
             //Start the transaction
             tx.begin();
-
             //Delete users from DB
-
             // As we are considering equipo as dependents on user - CASCADING BEHAVIOUR - ACCOUNTS DELETED
             Query<Usuario> query1 = pm.newQuery(Usuario.class);
             System.out.println(" * '" + query1.deletePersistentAll() + "' users and their equipos deleted from the DB.");
-
             //Delete equipo from DB
             Query<Equipo> query2 = pm.newQuery(Equipo.class);
             System.out.println(" * '" + query2.deletePersistentAll() + "' equipos deleted from the DB.");
-
             //End the transaction
             tx.commit();
         }
-
         catch (Exception ex)
         {
             System.err.println(" $ Error cleaning the DB: " + ex.getMessage());
             ex.printStackTrace();
         }
-
         finally
         {
             if (tx != null && tx.isActive())
             {
                 tx.rollback();
             }
-
             if (pm != null && !pm.isClosed())
             {
                 pm.close();
             }
         }
-
         //PARECE UN SELECT
         try
         {
@@ -439,32 +424,26 @@ public class Main {
             pm = pmf.getPersistenceManager();
             tx = pm.currentTransaction();
             tx.begin();
-
             @SuppressWarnings("unchecked")
             Query<Usuario> userQuery = pm.newQuery("SELECT FROM " + Usuario.class.getName() + " WHERE afiliacion='deusto' 150.00 ORDER BY user_name ASC");
-
             for (Usuario usuario : userQuery.executeList())
             {
                 System.out.println("- Selected from db: " + usuario.getUserName());
                 pm.deletePersistent(usuario);
                 System.out.println("- Deleted from db: " + usuario.getUserName());
             }
-
             tx.commit();
         }
-
         catch(Exception ex)
         {
             System.err.println("* Exception executing a query: " + ex.getMessage());
         }
-
         finally
         {
             if (tx.isActive())
             {
                 tx.rollback();
             }
-
             pm.close();
         }*/
 

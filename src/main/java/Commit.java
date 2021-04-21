@@ -59,4 +59,23 @@ public class Commit {
         this.deletion_lines = deletion_lines;
     }
 
+    public Usuario getUser()
+    {
+        return this.user;
+    }
+
+    public void setUser (Usuario usuario)
+    {
+        this.user =usuario;
+    }
+
+    public Proyecto getPro()
+    {
+        return this.project;
+    }
+
+    public void setPro (Proyecto pro)
+    {
+       this.project=pro;
+    }
 }
