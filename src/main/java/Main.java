@@ -1,4 +1,4 @@
-import javax.jdo.Extent;
+/*import javax.jdo.Extent;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
@@ -29,10 +29,10 @@ public class Main {
                 tx.begin();
 
                 //Create objects -  objects in memory
-                Usuario user1= new Usuario("anebollo", "swap", "España","anebollo@gmail.com");
-                Usuario user2 = new Usuario("olatzgonzalez", "uvesco", "España", "olatz.gonzalez1@opendeusto.es");
-                Usuario user3 = new Usuario("aitormati99", "deusto", "España", "aitor.matilla@opendeusto.es");
-                Usuario user4 = new Usuario("SarobeEzponda", "deusto", "España", "pablo.sarobe@opendeusto.es");
+                servidor.ld.Usuario user1= new servidor.ld.Usuario("anebollo", "swap", "España","anebollo@gmail.com");
+                servidor.ld.Usuario user2 = new servidor.ld.Usuario("olatzgonzalez", "uvesco", "España", "olatz.gonzalez1@opendeusto.es");
+                servidor.ld.Usuario user3 = new servidor.ld.Usuario("aitormati99", "deusto", "España", "aitor.matilla@opendeusto.es");
+                servidor.ld.Usuario user4 = new servidor.ld.Usuario("SarobeEzponda", "deusto", "España", "pablo.sarobe@opendeusto.es");
 
 
                 String datoFecha = "20-02-2021";
@@ -57,9 +57,9 @@ public class Main {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Equipo equipo1 = new Equipo(1, fecha);
-                Equipo equipo2 = new Equipo(2, fecha1);
-                Equipo equipo3 = new Equipo(3, fecha2);
+                servidor.ld.Equipo equipo1 = new servidor.ld.Equipo(1, fecha);
+                servidor.ld.Equipo equipo2 = new servidor.ld.Equipo(2, fecha1);
+                servidor.ld.Equipo equipo3 = new servidor.ld.Equipo(3, fecha2);
 
 
 
@@ -123,10 +123,10 @@ public class Main {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Proyecto proyecto1 = new Proyecto(1, "Biblioteca", fecha3,fecha4);
-                Proyecto proyecto2 = new Proyecto(2, "AA", fecha5, fecha6);
-                Proyecto proyecto3 = new Proyecto(3, "Investigadores", fecha7,fecha8);
-                Proyecto proyecto4 = new Proyecto(4, "DeustoPress", fecha9,fecha10);
+                servidor.ld.Proyecto proyecto1 = new servidor.ld.Proyecto(1, "Biblioteca", fecha3,fecha4);
+                servidor.ld.Proyecto proyecto2 = new servidor.ld.Proyecto(2, "AA", fecha5, fecha6);
+                servidor.ld.Proyecto proyecto3 = new servidor.ld.Proyecto(3, "Investigadores", fecha7,fecha8);
+                servidor.ld.Proyecto proyecto4 = new servidor.ld.Proyecto(4, "DeustoPress", fecha9,fecha10);
 
                 Commit commit1=new Commit (1,3,4);
                 Commit commit2=new Commit (2,7,0);
@@ -283,8 +283,8 @@ public class Main {
             tx = pm.currentTransaction();
             //Start the transaction
             tx.begin();
-            Extent<Proyecto> extent = pm.getExtent(Proyecto.class, true);
-            for (Proyecto proyecto : extent)
+            Extent<servidor.ld.Proyecto> extent = pm.getExtent(servidor.ld.Proyecto.class, true);
+            for (servidor.ld.Proyecto proyecto : extent)
             {
                 System.out.println("  -> " + proyecto);
             }
@@ -355,10 +355,10 @@ public class Main {
             tx = pm.currentTransaction();
             //Start the transaction
             tx.begin();
-            Query<Usuario> query = pm.newQuery(Usuario.class);
+            Query<servidor.ld.Usuario> query = pm.newQuery(servidor.ld.Usuario.class);
             @SuppressWarnings("unchecked")
-            List<Usuario> users = (List<Usuario>) query.execute();
-            for (Usuario user : users)
+            List<servidor.ld.Usuario> users = (List<servidor.ld.Usuario>) query.execute();
+            for (servidor.ld.Usuario user : users)
             {
                 System.out.println("  -> Retrieved user: " + user.getUserName());
                 System.out.println("     + Removing user from equipos ... ");
@@ -431,13 +431,13 @@ public class Main {
             tx = pm.currentTransaction();
             //Start the transaction
             tx.begin();
-            Query<Usuario> query = pm.newQuery(Usuario.class);
+            Query<servidor.ld.Usuario> query = pm.newQuery(servidor.ld.Usuario.class);
             query.setFilter("user_name == \"anebollo\"");
             @SuppressWarnings("unchecked")
-            List<Usuario> users = (List<Usuario>) query.execute();
+            List<servidor.ld.Usuario> users = (List<servidor.ld.Usuario>) query.execute();
             //End the transaction
             tx.commit();
-            for (Usuario user : users)
+            for (servidor.ld.Usuario user : users)
             {
                 user.setPais("Francia");
                 pm.makePersistent(user);
@@ -471,8 +471,8 @@ public class Main {
             tx = pm.currentTransaction();
             tx.begin();
             @SuppressWarnings("unchecked")
-            Query<Proyecto> userQuery = pm.newQuery("SELECT FROM " + Proyecto.class.getName() + " WHERE id_pro<3 ORDER BY id_pro ASC");
-            for (Proyecto pro : userQuery.executeList())
+            Query<servidor.ld.Proyecto> userQuery = pm.newQuery("SELECT FROM " + servidor.ld.Proyecto.class.getName() + " WHERE id_pro<3 ORDER BY id_pro ASC");
+            for (servidor.ld.Proyecto pro : userQuery.executeList())
             {
                 System.out.println("- Selected from db: " + pro.getnombrepro());
                 pm.deletePersistent(pro);
@@ -492,7 +492,7 @@ public class Main {
             }
             pm.close();
         }
-        */
+
         //DELETE
         try
         {
@@ -505,9 +505,9 @@ public class Main {
             tx.begin();
             //Delete users from DB
             // As we are considering equipo as dependents on user - CASCADING BEHAVIOUR - ACCOUNTS DELETED
-            Query<Equipo> query2 = pm.newQuery(Equipo.class);
+            Query<servidor.ld.Equipo> query2 = pm.newQuery(servidor.ld.Equipo.class);
             System.out.println(" * '" + query2.deletePersistentAll() + "' equipos deleted from the DB.");
-            Query<Usuario> query1 = pm.newQuery(Usuario.class);
+            Query<servidor.ld.Usuario> query1 = pm.newQuery(servidor.ld.Usuario.class);
             System.out.println(" * '" + query1.deletePersistentAll() + "' users and their equipos deleted from the DB.");
             //Delete equipo from DB
 
@@ -545,4 +545,4 @@ public class Main {
 
 
     }
-}
+}*/

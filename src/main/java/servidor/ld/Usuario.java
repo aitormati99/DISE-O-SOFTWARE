@@ -1,13 +1,15 @@
+package servidor.ld;
+
+import servidor.ld.Equipo;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
 
 
 import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
-import javax.jdo.annotations.Element;
 import javax.jdo.annotations.Order;
 import javax.jdo.annotations.Extension;
 

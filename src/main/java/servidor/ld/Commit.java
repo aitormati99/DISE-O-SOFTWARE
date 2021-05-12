@@ -1,3 +1,4 @@
+package servidor.ld;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -76,6 +77,6 @@ public class Commit {
 
     public void setPro (Proyecto pro)
     {
-       this.project=pro;
+        this.project=pro;
     }
 }
