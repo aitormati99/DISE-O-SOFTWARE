@@ -1,4 +1,6 @@
 package cliente.lp;
+import cliente.controller.Controller;
+
 import java.awt.EventQueue;
 
 
@@ -12,15 +14,15 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-public class PantallaInicial {
+public class PantallaInicial extends JFrame{
 
     private JPanel contentPane;
     private JTextField Afiliacion;
     private JTextField textField;
 
-    /**
+
+    /** ESTO AHORA YA NO LO NECESITAMOS
      * Launch the application.
-     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -33,6 +35,7 @@ public class PantallaInicial {
             }
         });
     }
+     */
 
     /**
      * Create the frame.
