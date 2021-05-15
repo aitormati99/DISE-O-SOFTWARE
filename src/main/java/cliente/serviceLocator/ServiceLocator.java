@@ -3,15 +3,17 @@ package cliente.serviceLocator;
 import servidor.façada.Façada;
 import servidor.façada.IFaçada;
 
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+
 public class ServiceLocator {
 
-    private IFaçada façada;
+    private IFaçada stubServer;
+    private Registry registry;
 
     public ServiceLocator()
     {}
-    public Façada buscar(String pais, String afiliacion) {
-
-    }
 
     public void setService(String[] args) {
 
@@ -19,12 +21,41 @@ public class ServiceLocator {
         String puerto = args[1];
         String serviceName = args [2];
 
+        if (System.getSecurityManager() == null)
+        {
+            System.setSecurityManager(new SecurityManager());
+        }
+
+        try
+        {
+            this.registry = LocateRegistry.getRegistry(((Integer.valueOf(puerto))));
+            String name = "//" + ip+ ":" + puerto + "/" + serviceName;
+            //stubServer = (IServer) java.rmi.Naming.lookup(name);
+            this.stubServer = (IFaçada) registry.lookup(name);
+
+
+        }
+        catch (Exception e)
+        {
+            System.err.println("- Exception running the client: " + e.getMessage());
+            e.printStackTrace();
+        }
+
     }
 
     public IFaçada getService()
     {
-        return façada;
+        return stubServer;
     }
+
+    public Façada buscar(String pais, String afiliacion) {
+
+            //NOSE QUE PONER
+            //return stubServer.buscar(pais,afiliacion);
+
+        return null;
+    }
+
 
     public void target(){
         //NO SABEMOOOS COMO SE HACE

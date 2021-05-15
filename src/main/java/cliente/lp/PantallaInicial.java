@@ -92,7 +92,12 @@ public class PantallaInicial extends JFrame{
         btnBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
+                String pais=lblPais.getText();
+                String afiliacion=lblAfiliacion.getText();
                 //pasar al controller pais y afiliacion
+                Controller controller=new Controller();
+                controller.buscar(pais,afiliacion);
+
             }
         });
         btnBuscar.setBounds(359, 327, 115, 29);

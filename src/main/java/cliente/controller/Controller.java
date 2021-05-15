@@ -9,22 +9,27 @@ import java.rmi.RemoteException;
 
 public class Controller {
 
-    private ServiceLocator rsl = null;
+    private ServiceLocator serviceLocator = null;
     private IFaçada fachada;
 
     public Controller(String [] args) throws RemoteException
     {
         //creamos el servicelocator y el gui
-        rsl = new ServiceLocator();
-        rsl.setService(args);
-        fachada = rsl.getService();
+        serviceLocator = new ServiceLocator();
+        serviceLocator.setService(args);
+        fachada = serviceLocator.getService();
 
         PantallaInicial frame = new PantallaInicial();
         frame.setVisible(true);
 
     }
 
-    public ServiceLocator buscar(String pais, String afiliacion){
+    public ServiceLocator buscar(String pais, String afiliacion) throws RemoteException {
+
+        //nose como poner porque ensi teoricamente es esto pero devuelve fachada
+       // return serviceLocator.buscar(pais,afiliacion);
+        return null;
+
     }
 
 
