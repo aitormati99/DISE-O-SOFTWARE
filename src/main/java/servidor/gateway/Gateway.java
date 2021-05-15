@@ -46,7 +46,7 @@ public class Gateway implements IGateway{
         }
     }
 
-
+//añadir otros metodos de extraer
     public void extraer(){
 
         // Example 1 -> List all users (one call retrieves 100 maximum)
@@ -66,6 +66,7 @@ public class Gateway implements IGateway{
             JSONArray array = res1.readEntity(JSONArray.class);
             System.out.println(array.size());
 
+            //ESTA PARTE NOSE SI HAY QUE HACERLO EN EL METODO MAPEO DE DAO
             HashMap<String, String> object1 = (HashMap<String, String>)array.get(0);
             System.out.println(object1);
             System.out.println(object1.get("login"));
