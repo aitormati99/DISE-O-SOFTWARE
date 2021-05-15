@@ -15,6 +15,10 @@ public class ServiceLocator {
 
     public void setService(String[] args) {
 
+        String ip = args[0];
+        String puerto = args[1];
+        String serviceName = args [2];
+
     }
 
     public IFaçada getService()
