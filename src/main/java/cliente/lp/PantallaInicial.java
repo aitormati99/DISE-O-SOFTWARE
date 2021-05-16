@@ -4,21 +4,20 @@ import cliente.controller.Controller;
 import java.awt.EventQueue;
 
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.rmi.RemoteException;
+
 public class PantallaInicial extends JFrame{
 
     private JPanel contentPane;
     private JTextField Afiliacion;
     private JTextField textField;
+
+    private static Controller controller;
 
 
     /** ESTO AHORA YA NO LO NECESITAMOS
@@ -40,7 +39,7 @@ public class PantallaInicial extends JFrame{
     /**
      * Create the frame.
      */
-    public PantallaInicial() {
+    public PantallaInicial(Controller controller) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 861, 636);
         contentPane = new JPanel();
@@ -94,9 +93,23 @@ public class PantallaInicial extends JFrame{
 
                 String pais=lblPais.getText();
                 String afiliacion=lblAfiliacion.getText();
+
+                Boolean validacion = false;
                 //pasar al controller pais y afiliacion
-                Controller controller=new Controller();
-                controller.buscar(pais,afiliacion);
+                try {
+                    validacion= controller.buscar(pais,afiliacion);
+                } catch (RemoteException remoteException) {
+                    remoteException.printStackTrace();
+                }
+
+                if (validacion){
+                    JOptionPane.showMessageDialog(PantallaInicial.this,
+                            "Los datos se han guardado correctamente");
+                }
+                else if (!validacion){
+                    JOptionPane.showMessageDialog(PantallaInicial.this,
+                            "ERROR. La busqueda no se ha realizado correctamente");
+                }
 
             }
         });

@@ -19,7 +19,8 @@ public class Controller {
         serviceLocator.setService(args);
         fachada = serviceLocator.getService();
 
-        PantallaInicial frame = new PantallaInicial();
+        //Pasarle al frame el controller
+        PantallaInicial frame = new PantallaInicial(this);
         frame.setVisible(true);
 
     }
