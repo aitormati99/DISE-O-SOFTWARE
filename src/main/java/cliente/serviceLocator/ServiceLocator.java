@@ -9,7 +9,7 @@ import java.rmi.registry.Registry;
 
 public class ServiceLocator {
 
-    private IFaçada stubServer;
+    private IFaçada stubServer = null;
     private Registry registry;
 
     public ServiceLocator()
@@ -17,14 +17,21 @@ public class ServiceLocator {
 
     public void setService(String[] args) {
 
-        String ip = args[0];
-        String puerto = args[1];
-        String serviceName = args [2];
+        if (args.length != 3)
+        {
+            System.out.println("uso: java [policy] [codebase] cliente.Cliente [host] [port] [server]");
+            System.exit(0);
+        }
 
         if (System.getSecurityManager() == null)
         {
             System.setSecurityManager(new SecurityManager());
         }
+
+        String ip = args[0];
+        String puerto = args[1];
+        String serviceName = args [2];
+
 
         try
         {
@@ -48,6 +55,7 @@ public class ServiceLocator {
         return stubServer;
     }
 
+
     public Façada buscar(String pais, String afiliacion) {
 
             //NOSE QUE PONER
@@ -56,7 +64,7 @@ public class ServiceLocator {
         return null;
     }
 
-
+    //YO CREO QUE NO HACE FALTA
     public void target(){
         //NO SABEMOOOS COMO SE HACE
     }

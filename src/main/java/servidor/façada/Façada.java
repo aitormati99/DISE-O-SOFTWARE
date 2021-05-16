@@ -11,10 +11,15 @@ import java.util.HashMap;
 
 public class Façada extends UnicastRemoteObject implements IFaçada  {
 
+    //NO SE SI HACE FALTA, EL LO TIENE EN SUS EJEMPLOS
+    private static final long serialVersionUID = 1L;
+
     private AppService appservice=new AppService();
 
 
     public Façada() throws RemoteException {
+
+        /* PARTE DE ESTO YA ESTA HECHO EN EL SL
 
         //NOSE SI ESTO VA AQUI PERO SEGUN SUS EJEMPLOS SII
         if (System.getSecurityManager() == null) {
@@ -36,7 +41,9 @@ public class Façada extends UnicastRemoteObject implements IFaçada  {
         {
             System.err.println("- Exception running the server: " + e.getMessage());
             e.printStackTrace();
-        }
+        }*/
+
+        super();
     }
 
   /**  public AppService buscar(String pais, String afiliacion)  throws RemoteException{
