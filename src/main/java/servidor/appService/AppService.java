@@ -12,6 +12,7 @@ import servidor.ld.Proyecto;
 
 public class AppService{
 
+    //lo que falta en el gateway como parameto dependera de lo que busquemos
     private Gateway gateway = new Gateway();
     private Dao dao = new Dao();
 
@@ -20,16 +21,19 @@ public class AppService{
     //seguir adelante
         return ValBusqueda;
     }
-    public Dao buscar1(String pais, String afiliacion) throws RemoteException{
+    public boolean buscar1(String pais, String afiliacion) throws RemoteException{
 
         //return dao.buscar(pais,afiliacion);
+        boolean valBusqueda=false;
+        //valBusqueda=dao.buscar(pais,afiliacion);
+        return valBusqueda;
     }
 
     public Dao mapeo()throws RemoteException{
 
     }
 
-    public Gateway extraer()throws RemoteException{
+    public boolean extraer()throws RemoteException{
 
        //creo que los tipos de return tenemos mal
         //return gateway.extraer();

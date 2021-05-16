@@ -2,7 +2,9 @@ package servidor.gateway;
 
 import servidor.gateway.Gateway;
 
-import javax.xml.ws.Response;
+
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 public interface IGateway {
 

@@ -56,12 +56,14 @@ public class ServiceLocator {
     }
 
 
-    public Façada buscar(String pais, String afiliacion) {
+    public boolean buscar(String pais, String afiliacion) {
 
-            //NOSE QUE PONER
-            //return stubServer.buscar(pais,afiliacion);
+          
 
-        return null;
+        //boolean ValBusqueda = false;
+        //return IFaçada.buscar(pais, afiliacion);
+        return false;
+
     }
 
     //YO CREO QUE NO HACE FALTA

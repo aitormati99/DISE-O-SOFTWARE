@@ -64,6 +64,7 @@ public class Dao implements Idao{
         }
         */
 
+        return null;
     }
 
     public <T> boolean guardar(T objeto){

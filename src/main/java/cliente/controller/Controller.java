@@ -39,5 +39,8 @@ public class Controller {
         return ValBusqueda;
     }
 
+    public static void main(String[]args)throws RemoteException{
+        new Controller(args);
+    }
 
 }
