@@ -39,12 +39,18 @@ public class Façada extends UnicastRemoteObject implements IFaçada  {
         }
     }
 
-    public AppService buscar(String pais, String afiliacion)  throws RemoteException{
+  /**  public AppService buscar(String pais, String afiliacion)  throws RemoteException{
 
         //NOSE QUE PONER
        // return appservice.buscar(pais,afiliacion);
         return null;
-    }
+    }**/
+    @Override
+    public boolean buscar(String pais, String afiliacion) throws RemoteException {
 
+        boolean ValBusqueda = false;
+        ValBusqueda = appservice.buscar(pais, afiliacion);
+        return false;
+    }
 }
 

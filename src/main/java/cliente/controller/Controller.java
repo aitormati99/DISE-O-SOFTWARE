@@ -24,12 +24,18 @@ public class Controller {
 
     }
 
-    public ServiceLocator buscar(String pais, String afiliacion) throws RemoteException {
+   /** public ServiceLocator buscar(String pais, String afiliacion) throws RemoteException {
 
         //nose como poner porque ensi teoricamente es esto pero devuelve fachada
        // return serviceLocator.buscar(pais,afiliacion);
         return null;
 
+    }**/
+    public boolean buscar(String pais, String afiliacion) throws RemoteException {
+        boolean ValBusqueda = false;
+        ValBusqueda = fachada.buscar(pais, afiliacion);
+
+        return ValBusqueda;
     }
 
 

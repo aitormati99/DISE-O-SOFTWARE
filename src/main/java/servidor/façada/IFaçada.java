@@ -6,5 +6,5 @@ import java.rmi.RemoteException;
 
 public interface IFaçada extends Remote{
 
-    public AppService buscar(String pais, String afiliacion)  throws RemoteException;
+    public boolean buscar(String pais, String afiliacion)  throws RemoteException;
 }

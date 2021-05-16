@@ -15,8 +15,12 @@ public class AppService{
     private Gateway gateway = new Gateway();
     private Dao dao = new Dao();
 
-
-    public Dao buscar(String pais, String afiliacion) throws RemoteException{
+    public boolean buscar (String pais, String afiliacion) throws  RemoteException{
+        boolean ValBusqueda = false;
+    //seguir adelante
+        return ValBusqueda;
+    }
+    public Dao buscar1(String pais, String afiliacion) throws RemoteException{
 
         //return dao.buscar(pais,afiliacion);
     }
