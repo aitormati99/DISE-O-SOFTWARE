@@ -8,6 +8,6 @@ import javax.ws.rs.core.Response.Status;
 
 public interface IGateway {
 
-    public void extraer();
+
     public Response makeGetRequest(String query) throws Exception;
 }

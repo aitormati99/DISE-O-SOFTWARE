@@ -24,6 +24,7 @@ public class Gateway implements IGateway{
     private Client client;
     private WebTarget webTarget;
 
+
     public Gateway(String accessPoint)
     {
         client = ClientBuilder.newClient();
@@ -47,7 +48,7 @@ public class Gateway implements IGateway{
     }
 
 //añadir otros metodos de extraer
-    public void extraer(){
+    /*public void extraer(){
 
         // Example 1 -> List all users (one call retrieves 100 maximum)
         // https://docs.github.com/en/rest/reference/users#list-users
@@ -95,7 +96,7 @@ public class Gateway implements IGateway{
 		}
 
 
-	*/
 
-    }
+
+    }*/
 }
