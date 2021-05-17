@@ -306,6 +306,7 @@ public class AppService{
                 HashMap<String, String> object1 = (HashMap<String, String>) array.get(i);
                 //System.out.println(object1);
 
+
                 String addition_commits = object1.get("stats.addition");
                 int addition_commits_int=parseInt(addition_commits);
                 String deletion_commits=object1.get("stats.deletion");

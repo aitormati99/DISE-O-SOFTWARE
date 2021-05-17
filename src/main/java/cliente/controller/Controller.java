@@ -37,6 +37,7 @@ public class Controller {
         ValBusqueda = fachada.buscar(pais, afiliacion);
 
         return ValBusqueda;
+
     }
 
     public static void main(String[]args)throws RemoteException{

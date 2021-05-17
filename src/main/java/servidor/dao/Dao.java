@@ -26,7 +26,7 @@ public class Dao implements Idao{
         this.pm = pmf.getPersistenceManager();
     }
 
-    public List buscar(String pais, String afiliacion){
+    public List buscarUsuarios(String pais, String afiliacion){
 
        /* try
         {
@@ -66,8 +66,22 @@ public class Dao implements Idao{
 
         return null;
     }
+    public List buscarEquipos(String pais, String afiliacion){
 
-    public <T> boolean guardar(T objeto){
+        return null;
+    }
+
+    public List buscarProyectos(String pais, String afiliacion){
+
+        return null;
+    }
+
+    public List buscarCommits(String pais, String afiliacion){
+
+        return null;
+    }
+
+    public <T>boolean guardar(List<T> listaObjetos){
 
         boolean guardado = true;
 
@@ -81,7 +95,9 @@ public class Dao implements Idao{
             //Start the transaction
             tx.begin();
 
-            pm.makePersistent(objeto);
+            for(int i=0; i<listaObjetos.size(); i++) {
+                pm.makePersistent(listaObjetos.get(i));
+            }
 
             //End the transaction
             tx.commit();
