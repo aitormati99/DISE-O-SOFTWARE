@@ -26,9 +26,10 @@ public class Dao implements Idao{
         this.pm = pmf.getPersistenceManager();
     }
 
-    public List buscarUsuarios(String pais, String afiliacion){
+    public boolean buscarUsuarios(String pais, String afiliacion){
 
-       /* try
+       /* ALGOOOOO ASI PARA CADA OBJETOOOOOOOO
+       //SELECT USUARIOS
         {
             System.out.println("- Retrieving commit with addition_lines > 10 using a 'Query'...");
             //Get the Persistence Manager
@@ -64,21 +65,25 @@ public class Dao implements Idao{
         }
         */
 
-        return null;
+
+        return false;
     }
-    public List buscarEquipos(String pais, String afiliacion){
+    public boolean buscarEquipos(String pais, String afiliacion){
 
-        return null;
-    }
-
-    public List buscarProyectos(String pais, String afiliacion){
-
-        return null;
+        //SELECT EQUIPOS
+        return false;
     }
 
-    public List buscarCommits(String pais, String afiliacion){
+    public boolean buscarProyectos(String pais, String afiliacion){
 
-        return null;
+        //SELECT PROYECTOS
+        return false;
+    }
+
+    public boolean buscarCommits(String pais, String afiliacion){
+
+        //SELECT COMMITS
+        return false;
     }
 
     public <T>boolean guardar(List<T> listaObjetos){

@@ -29,19 +29,34 @@ public class AppService{
     private ArrayList<Commit> listaCommit=new ArrayList<Commit>();
     private ArrayList<Equipo> listaEquipos=new ArrayList<Equipo>();
     private ArrayList<Proyecto> listaProyectos=new ArrayList<Proyecto>();
+
+
     private int id_equipo=0;
 
-    public boolean buscar (String pais, String afiliacion) throws  RemoteException{
-        boolean ValBusqueda = false;
-    //seguir adelante
-        return ValBusqueda;
-    }
-    public boolean buscar1(String pais, String afiliacion) throws RemoteException{
+    public boolean buscarUsuarios (String pais, String afiliacion) throws  RemoteException{
 
-        //return dao.buscar(pais,afiliacion);
-        boolean valBusqueda=false;
-        //valBusqueda=dao.buscar(pais,afiliacion);
-        return valBusqueda;
+        boolean val=dao.buscarUsuarios(pais,afiliacion);
+
+        return val;
+
+    }
+    public boolean buscarEquipos(String pais, String afiliacion) throws RemoteException{
+
+        boolean val=dao.buscarEquipos(pais,afiliacion);
+
+        return val;
+    }
+    public boolean buscarProyectos(String pais, String afiliacion) throws RemoteException{
+
+        boolean val=dao.buscarProyectos(pais,afiliacion);
+
+        return val;
+    }
+    public boolean buscarCommits(String pais, String afiliacion) throws RemoteException{
+
+        boolean val=dao.buscarCommits(pais,afiliacion);
+
+        return val;
     }
 
     public void mapeo()throws RemoteException{
@@ -163,6 +178,8 @@ public class AppService{
 
                 extraerContributorsUsers(nombre_pro,b);
 
+                //GUARDAR INFO EN EL DAO
+
             }
 
             // since and per_page parameters are also relevant
@@ -173,7 +190,7 @@ public class AppService{
             System.out.println("Catched exception: " + e.getMessage());
         }
 
-        https://api.github.com/repos/mojombo/30daysoflaptops.github.io/contributors
+
 
         return extraido;
     }
@@ -219,9 +236,8 @@ public class AppService{
 
                 }
 
+            //GUARDAR INFO EN EL DAO
 
-            // since and per_page parameters are also relevant
-            // curl -H "Accept: application/vnd.github.v3+json" "https://api.github.com/users?per_page=2&since=5"
 
         } catch (Exception e) {
 
@@ -273,9 +289,8 @@ public class AppService{
 
             }
 
+            //GUARDAR INFO EN EL DAO
 
-            // since and per_page parameters are also relevant
-            // curl -H "Accept: application/vnd.github.v3+json" "https://api.github.com/users?per_page=2&since=5"
 
         } catch (Exception e) {
 
@@ -320,8 +335,7 @@ public class AppService{
 
 
 
-            // since and per_page parameters are also relevant
-            // curl -H "Accept: application/vnd.github.v3+json" "https://api.github.com/users?per_page=2&since=5"
+            //GUARDAR INFO EN EL DAO
 
         } catch (Exception e) {
 
@@ -347,5 +361,7 @@ public class AppService{
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        return fecha9;
     }
 }
