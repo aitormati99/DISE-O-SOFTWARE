@@ -54,5 +54,7 @@ public class Façada extends UnicastRemoteObject implements IFaçada  {
         return appservice.buscar(pais, afiliacion);
 
     }
+
+
 }
 
