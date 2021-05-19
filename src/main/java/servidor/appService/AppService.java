@@ -23,8 +23,8 @@ import javax.ws.rs.core.Response;
 public class AppService{
 
     //lo que falta en el gateway como parameto dependera de lo que busquemos
-    private Gateway gateway;
-    //private Gateway gateway = new Gateway();
+    private Gateway gateway = new Gateway();
+
     private Dao dao = new Dao();
     ArrayList<Usuario> listaUsuarios=new ArrayList<Usuario>();
     ArrayList<Commit> listaCommit=new ArrayList<Commit>();

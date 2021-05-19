@@ -27,21 +27,10 @@ import java.util.LinkedHashMap;
 
 public class Gateway implements IGateway{
 
-    private final String url = "https://api.github.com";
-    private Client client;
-    private WebTarget webTarget;
-
     private ArrayList<Usuario> listaUsuarios=new ArrayList<Usuario>();
     private ArrayList<Commit> listaCommit=new ArrayList<Commit>();
     private ArrayList<Equipo> listaEquipos=new ArrayList<Equipo>();
     private ArrayList<Proyecto> listaProyectos=new ArrayList<Proyecto>();
-
-
-    public Gateway(String accessPoint)
-    {
-
-    }
-
 
 
 //añadir otros metodos de extraer
@@ -77,19 +66,13 @@ public class Gateway implements IGateway{
             System.out.println("Catched exception: " + e.getMessage());
         }
 
-
-
 		/*
-
-
-
 		RestClient c2 = new RestClient(hostname, port);
 		RestClient c3 = new RestClient(hostname, port);
 		RestClient c4 = new RestClient(hostname, port);
 
 			c1.makeGetRequest();
 			c1.makePostRequest("This is a client super complex message to send to server");
-
 		 */
     }
 
