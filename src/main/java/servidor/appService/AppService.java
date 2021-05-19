@@ -24,6 +24,7 @@ public class AppService{
 
     //lo que falta en el gateway como parameto dependera de lo que busquemos
     private Gateway gateway;
+    //private Gateway gateway = new Gateway();
     private Dao dao = new Dao();
     ArrayList<Usuario> listaUsuarios=new ArrayList<Usuario>();
     ArrayList<Commit> listaCommit=new ArrayList<Commit>();
@@ -48,9 +49,7 @@ public class AppService{
         listaEquipos= gateway.getListaEquipos();
         listaProyectos= gateway.getListaProyectos();
 
-
         guardarDao();
-
 
         return val;
 
@@ -62,6 +61,7 @@ public class AppService{
         dao.guardar(listaCommit);
         dao.guardar(listaEquipos);
         dao.guardar(listaProyectos);
+        //dao.guardar(listaUsuarios, listaCommit, listaEquipos, listaProyectos);
 
     }
 

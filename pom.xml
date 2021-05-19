@@ -174,7 +174,29 @@
         </plugins>
     </build>
 
+   <profiles>
+        <!-- run as 'mvn exec:java -Ptest1' -->
+        <profile>
+            <id>test1</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <configuration>
+                            <mainClass>client.GithubRestClient</mainClass>
+                            <arguments>
+                                <argument></argument>
+                                <argument></argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
+    </profiles>
 
 
 </project>
