@@ -1,10 +1,14 @@
 package servidor.ld;
 import java.util.List;
 import java.util.ArrayList;
-
-
+import lombok.NoArgsConstructor;
+import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
 import javax.jdo.annotations.*;
 
+@Data
+//@Getter @Setter
 @PersistenceCapable
 public class Commit {
 
