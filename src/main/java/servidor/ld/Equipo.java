@@ -1,5 +1,7 @@
 package servidor.ld;
 
+import lombok.Data;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,6 +16,7 @@ import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Element;
 
+@Data
 @PersistenceCapable
 public class Equipo {
 
@@ -37,19 +40,7 @@ public class Equipo {
 
     }
 
-
-    //metodos varios y get y set
     //nose si insert, delete, update y select aqui o en el main
-
-    public int getIdEquipo()
-    {
-        return id_equipo;
-    }
-
-    public void setIdEquipo(int id_equipo)
-    {
-        this.id_equipo = id_equipo;
-    }
 
     public void addPro (Proyecto pro)
     {
@@ -92,6 +83,19 @@ public class Equipo {
         return usuarios.size();
     }
 
+    //metodos getters y setters que ya no necesitamos
+
+    /*
+    public int getIdEquipo()
+    {
+        return id_equipo;
+    }
+
+    public void setIdEquipo(int id_equipo)
+    {
+        this.id_equipo = id_equipo;
+    }
+
     public Date getFecha_ini() {
         return fecha_ini;
     }
@@ -99,5 +103,9 @@ public class Equipo {
     public void setFecha_ini(Date fecha_ini) {
         this.fecha_ini = fecha_ini;
     }
+
+    */
+
+
 
 }
