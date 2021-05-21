@@ -1,12 +1,14 @@
 package servidor.ld;
 
+import lombok.Data;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
 import javax.jdo.annotations.*;
-
+@Data
 @PersistenceCapable
 public class Proyecto {
 
@@ -36,29 +38,6 @@ public class Proyecto {
     }
 
 
-    //metodos varios y get y set
-    //nose si insert, delete, update y select aqui o en el main
-
-    public int getIdpro()
-    {
-        return id_pro;
-    }
-
-    public void setIdpro(int id_pro)
-    {
-        this.id_pro = id_pro;
-    }
-
-    public String getnombrepro()
-    {
-        return nombrepro;
-    }
-
-    public void setNombrepro(String nombrepro)
-    {
-        this.nombrepro = nombrepro;
-    }
-
     public void addCommit(Commit commit)
     {
         commits.add(commit);
@@ -79,6 +58,29 @@ public class Proyecto {
         return commits.size();
     }
 
+    //metodos getters y setters que ya no necesitamos
+
+    /*
+    public int getIdpro()
+    {
+        return id_pro;
+    }
+
+    public void setIdpro(int id_pro)
+    {
+        this.id_pro = id_pro;
+    }
+
+    public String getnombrepro()
+    {
+        return nombrepro;
+    }
+
+    public void setNombrepro(String nombrepro)
+    {
+        this.nombrepro = nombrepro;
+    }
+
     public Date getProy_fecha_ini() {
         return proy_fecha_ini;
     }
@@ -94,4 +96,8 @@ public class Proyecto {
     public void setProy_fecha_fin(Date proy_fecha_fin) {
         this.proy_fecha_fin = proy_fecha_fin;
     }
+
+    */
+
+
 }

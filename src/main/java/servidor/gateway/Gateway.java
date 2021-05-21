@@ -27,21 +27,10 @@ import java.util.LinkedHashMap;
 
 public class Gateway implements IGateway{
 
-    private final String url = "https://api.github.com";
-    private Client client;
-    private WebTarget webTarget;
-
     private ArrayList<Usuario> listaUsuarios=new ArrayList<Usuario>();
     private ArrayList<Commit> listaCommit=new ArrayList<Commit>();
     private ArrayList<Equipo> listaEquipos=new ArrayList<Equipo>();
     private ArrayList<Proyecto> listaProyectos=new ArrayList<Proyecto>();
-
-
-    public Gateway(String accessPoint)
-    {
-
-    }
-
 
 
 //añadir otros metodos de extraer
@@ -77,19 +66,13 @@ public class Gateway implements IGateway{
             System.out.println("Catched exception: " + e.getMessage());
         }
 
-
-
 		/*
-
-
-
 		RestClient c2 = new RestClient(hostname, port);
 		RestClient c3 = new RestClient(hostname, port);
 		RestClient c4 = new RestClient(hostname, port);
 
 			c1.makeGetRequest();
 			c1.makePostRequest("This is a client super complex message to send to server");
-
 		 */
     }
 
@@ -145,21 +128,18 @@ public class Gateway implements IGateway{
             Response res1 = c1.makeGetRequest("");
 
             // Parse the response as JsonArray
-            JSONArray array = res1.readEntity(JSONArray.class);
+            JSONObject object = res1.readEntity(JSONObject.class);
+
             //System.out.println(array.size());
 
             //ESTA PARTE NOSE SI HAY QUE HACERLO EN EL METODO MAPEO DE DAO
-            for(int i=0; i<array.size();i++) {
-                HashMap<String, String> object1 = (HashMap<String, String>) array.get(i);
                 //System.out.println(object1);
-                String email=object1.get("email");
-                String pais=object1.get("location");
-                String afiliacion=object1.get("company");
+                String email= (String) object.get("email");
+                String pais= (String) object.get("location");
+                String afiliacion= (String) object.get("company");
                 listaUsuarios.get(a).setAfiliacion(afiliacion);
                 listaUsuarios.get(a).setEmail(email);
                 listaUsuarios.get(a).setPais(pais);
-
-            }
 
             // since and per_page parameters are also relevant
             // curl -H "Accept: application/vnd.github.v3+json" "https://api.github.com/users?per_page=2&since=5"

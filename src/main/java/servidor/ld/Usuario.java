@@ -1,5 +1,6 @@
 package servidor.ld;
 
+import lombok.Data;
 import servidor.ld.Equipo;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Order;
 import javax.jdo.annotations.Extension;
 
+@Data
 @PersistenceCapable
 public class Usuario {
 
@@ -43,49 +45,7 @@ public class Usuario {
     public Usuario() {
 
     }
-
-    //metodos varios y get y set
     //nose si insert, delete, update y select aqui o en el main
-
-    public String getUserName()
-    {
-        return user_name;
-    }
-
-    public void setUserName(String user_name)
-    {
-        this.user_name = user_name;
-    }
-
-    public String getAfiliacion()
-    {
-        return afiliacion;
-    }
-
-    public void setAfiliacion(String afiliacion)
-    {
-        this.afiliacion = afiliacion;
-    }
-
-    public String getPais()
-    {
-        return pais;
-    }
-
-    public void setPais(String pais)
-    {
-        this.pais = pais;
-    }
-
-    public String getEmail()
-    {
-        return email;
-    }
-
-    public void setEmail(String email)
-    {
-        this.email = email;
-    }
 
     public void addCommit(Commit commit)
     {
@@ -132,4 +92,45 @@ public class Usuario {
     {
         return equipos.size();
     }
+
+    //metodos getters y setters que ya no necesitamos
+
+    /*
+    public String getUserName() { return user_name; }
+
+    public void setUserName(String user_name) { this.user_name = user_name; }
+
+    public String getAfiliacion()
+    {
+        return afiliacion;
+    }
+
+    public void setAfiliacion(String afiliacion)
+    {
+        this.afiliacion = afiliacion;
+    }
+
+    public String getPais()
+    {
+        return pais;
+    }
+
+    public void setPais(String pais)
+    {
+        this.pais = pais;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
+
+    */
+
+
 }

@@ -1,5 +1,6 @@
 package servidor.façada;
 
+import cliente.controller.Controller;
 import servidor.appService.AppService;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
@@ -19,9 +20,22 @@ public class Façada extends UnicastRemoteObject implements IFaçada  {
 
     public Façada() throws RemoteException {
 
-        /* PARTE DE ESTO YA ESTA HECHO EN EL SL
 
-        //NOSE SI ESTO VA AQUI PERO SEGUN SUS EJEMPLOS SII
+        super();
+    }
+
+
+    @Override
+    public boolean buscar(String pais, String afiliacion) throws RemoteException {
+
+        boolean ValBusqueda = false;
+        return appservice.buscar(pais, afiliacion);
+
+    }
+
+    public static void main(String[]args)throws RemoteException{
+
+        //NOSE SI HAY QUE CREAR AQUI LA FAÇADA Y LLAMAR AL METODO BUSCAAAAAAAAAAAR!!!
         if (System.getSecurityManager() == null) {
             System.setSecurityManager(new SecurityManager());
         }
@@ -41,18 +55,7 @@ public class Façada extends UnicastRemoteObject implements IFaçada  {
         {
             System.err.println("- Exception running the server: " + e.getMessage());
             e.printStackTrace();
-        }*/
-
-        super();
-    }
-
-
-    @Override
-    public boolean buscar(String pais, String afiliacion) throws RemoteException {
-
-        boolean ValBusqueda = false;
-        return appservice.buscar(pais, afiliacion);
-
+        }
     }
 
 

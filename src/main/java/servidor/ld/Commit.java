@@ -1,10 +1,14 @@
 package servidor.ld;
 import java.util.List;
 import java.util.ArrayList;
-
-
+import lombok.NoArgsConstructor;
+import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
 import javax.jdo.annotations.*;
 
+@Data
+//@Getter @Setter
 @PersistenceCapable
 public class Commit {
 
@@ -29,36 +33,6 @@ public class Commit {
     }
 
 
-    //metodos varios y get y set
-
-    public int getId_commit()
-    {
-        return id_commit;
-    }
-
-    public void setIdcommit(int id_commit)
-    {
-        this.id_commit = id_commit;
-    }
-    public int getAdditionlines()
-    {
-        return addition_lines;
-    }
-
-    public void setAdditionlines(int addition_lines)
-    {
-        this.addition_lines = addition_lines;
-    }
-
-    public int getDeletionlines()
-    {
-        return deletion_lines;
-    }
-
-    public void setDeletionlines(int deletion_lines)
-    {
-        this.deletion_lines = deletion_lines;
-    }
 
     public Usuario getUser()
     {
@@ -79,4 +53,39 @@ public class Commit {
     {
         this.project=pro;
     }
+
+    
+    //metodos getters y setters que ya no necesitamos
+    /*
+    public void setIdcommit(int id_commit)
+    {
+        this.id_commit = id_commit;
+    }
+
+    public int getId_commit()
+    {
+        return id_commit;
+    }
+
+    public int getAdditionlines()
+    {
+        return addition_lines;
+    }
+
+    public int getDeletionlines()
+    {
+        return deletion_lines;
+    }
+
+    public void setAdditionlines(int addition_lines)
+    {
+        this.addition_lines = addition_lines;
+    }
+
+    public void setDeletionlines(int deletion_lines)
+    {
+        this.deletion_lines = deletion_lines;
+    }
+
+    */
 }
