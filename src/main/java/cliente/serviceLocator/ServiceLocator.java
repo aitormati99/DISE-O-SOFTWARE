@@ -49,7 +49,7 @@ public class ServiceLocator {
         }
 
     }
-
+    //la llamada al servidor, hay que hacer algo de jetty?
     public IFaçada getService()
     {
         return stubServer;
