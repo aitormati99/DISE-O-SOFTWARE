@@ -39,6 +39,9 @@ public class Equipo {
         this.fecha_ini=fecha_ini;
 
     }
+    public Equipo(){
+
+    }
 
     //nose si insert, delete, update y select aqui o en el main
 

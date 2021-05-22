@@ -13,7 +13,7 @@ import javax.jdo.annotations.*;
 public class Commit {
 
     @PrimaryKey
-    private int id_commit;
+    private String id_commit;
     private int addition_lines;
     private int deletion_lines;
 
@@ -24,11 +24,14 @@ public class Commit {
     Proyecto project = new Proyecto();
 
 
-    public Commit(int id_commit, int addition_lines, int deletion_lines)
+    public Commit(String id_commit, int addition_lines, int deletion_lines)
     {
         this.id_commit=id_commit;
         this.addition_lines=addition_lines;
         this.deletion_lines=deletion_lines;
+
+    }
+    public Commit(){
 
     }
 

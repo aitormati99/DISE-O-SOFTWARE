@@ -194,6 +194,7 @@ public class Dao implements Idao{
 
         return guardado;
     }
+
     //¿?Para cerrar la BD, + deberia de ser private sino cerramos la BD desde fuera, no?
     public void cerrarBD() {
 
