@@ -10,5 +10,4 @@ public interface Idao {
     public boolean buscarCommits(String pais, String afiliacion);
     public <T> boolean guardar(List<T> objeto);
 
-
 }

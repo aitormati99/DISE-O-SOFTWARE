@@ -65,9 +65,74 @@ public class Dao implements Idao{
         }
         */
 
+        //PABLO: posible codigo:
+        //una vez estoy en la BD, lo que hago es comparar el pais y afiliaciacion con lo que tenemos
+        //en el caso de que coincida copiara le nombre del usuario y lo imprimira para aseguararnos que
+        //esta bn, y cambio el la validacion de falso a true
+        //posibles problemas: *tiene que buscar con ambos parametros para que funcione (doble if)
+        //                    *no se si hay que donde añadir los usuarios que coinciden, si a un arraylist
+        //                     o a otro sitio para crear lo del CV
+        /**String busqueda = null;
+        boolean busquedaVal = false;
 
+        try
+        {
+            System.out.println("Buscando en usuarios por pais y afiliacion...");
+
+            //Get the Persistence Manager
+            pm = pmf.getPersistenceManager();
+
+            //Obtain the current transaction
+            tx = pm.currentTransaction();
+
+            //Start the transaction
+            tx.begin();
+
+            Query<Usuario> query = pm.newQuery(Usuario.class);
+            //query.setFilter("nombre == ");
+
+            @SuppressWarnings("unchecked")
+            List<Usuario> usuarios = (List<Usuario>) query.execute();
+
+            //End the transaction
+            tx.commit();
+
+            for (Usuario usuario : usuarios)
+            {
+                if(usuario.getPais()==pais)
+                {
+                    if(usuario.getAfiliacion()==afiliacion)
+                    {
+                        busqueda = usuario.getUser_name();
+                        System.out.println("EL ultimo nombre encontrado es: " + busqueda);
+                        busquedaVal = true;
+                    }
+                }
+            }
+        }
+
+        catch (Exception ex)
+        {
+            System.err.println(" $ Error retrieving user name using a 'Query': " + ex.getMessage());
+        }
+
+        finally
+        {
+            if (tx != null && tx.isActive())
+            {
+                tx.rollback();
+            }
+
+            if (pm != null && !pm.isClosed()) {
+                pm.close();
+            }
+        }
+        return busquedaVal;
+            */
+        //habria que quitar el return false, para mete esta parte
         return false;
     }
+
     public boolean buscarEquipos(String pais, String afiliacion){
 
         //SELECT EQUIPOS
@@ -128,5 +193,18 @@ public class Dao implements Idao{
         }
 
         return guardado;
+    }
+    //¿?Para cerrar la BD, + deberia de ser private sino cerramos la BD desde fuera, no?
+    public void cerrarBD() {
+
+        if (tx != null && tx.isActive()) {
+            tx.rollback();
+        }
+
+        if (pm != null && !pm.isClosed())
+        {
+            pm.close();
+            // ATTENTION -  Datanucleus detects that the objects in memory were changed and they are flushed to DB
+        }
     }
 }

@@ -23,6 +23,10 @@ public class PantallaInicial extends JFrame{
      * Create the frame.
      */
     public PantallaInicial(Controller controller) {
+
+        //¿?Porque no hacemos codigo
+        // para poder utilizar toda la API disponible en el Controlodor
+        //        this.controller = controller;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 861, 636);
         contentPane = new JPanel();
@@ -76,6 +80,9 @@ public class PantallaInicial extends JFrame{
                 //¿?creo que esto no deberia de ser un void,
                 // si no un boolean con el retorno,
                 // codigo--> return controller.buscar();
+                //
+                // viendo lo que hizo en el laboratorio
+                //  controller.buscar(lblPais.getText(), lblAfiliacion.getText());
                 String pais=lblPais.getText();
                 String afiliacion=lblAfiliacion.getText();
 

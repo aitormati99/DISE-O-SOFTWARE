@@ -34,16 +34,15 @@ public class Controller {
     }**/
    //¿? si habría que hacer el return desde SL, creo que para RMI
    //codigo--> return serviceLocator.getService().buscar();
+   //RESPUESTA: fachada = serviceLocator().getService()
     public boolean buscar(String pais, String afiliacion) throws RemoteException {
         boolean ValBusqueda = false;
         ValBusqueda = fachada.buscar(pais, afiliacion);
 
         return ValBusqueda;
-
     }
 
     public static void main(String[]args)throws RemoteException{
         new Controller(args);
     }
-
 }
