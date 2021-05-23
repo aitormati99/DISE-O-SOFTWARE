@@ -7,13 +7,9 @@ import servidorExterno.GithubRestClient;
 import javax.ws.rs.core.Response;
 
 
-
-
 public class Gateway implements IGateway{
 
-
     public JSONArray extraerArrayJson(String accessPoint){
-
 
         JSONArray array = null;
         try {
@@ -32,7 +28,6 @@ public class Gateway implements IGateway{
 		return array;
     }
 
-
     public JSONObject extraerJsonObject(String accessPoint){
 
         JSONObject object=null;
@@ -41,19 +36,15 @@ public class Gateway implements IGateway{
             GithubRestClient c1 = new GithubRestClient("users");
             Response res1 = c1.makeGetRequest("");
 
-            // Parse the response as JsonArray
+            // Parse the response as JsonObject
             object = res1.readEntity(JSONObject.class);
-            //System.out.println(array.size());
 
         } catch (Exception e) {
 
             System.out.println("Catched exception: " + e.getMessage());
         }
 
-
-
         return object;
     }
-
 
 }

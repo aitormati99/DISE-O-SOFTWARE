@@ -1,7 +1,6 @@
 package servidor.ld;
 import java.util.List;
 import java.util.ArrayList;
-import lombok.NoArgsConstructor;
 import lombok.Data;
 import lombok.Setter;
 import lombok.Getter;
@@ -34,8 +33,6 @@ public class Commit {
     public Commit(){
 
     }
-
-
 
     public Usuario getUser()
     {

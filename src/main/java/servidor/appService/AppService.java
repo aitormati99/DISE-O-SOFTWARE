@@ -45,15 +45,12 @@ public class AppService{
         extraerEquipo();
         extraerCommit();
         extraerMasInfoCommit();
-
         guardarDao();
 
         boolean val=dao.buscarUsuarios(pais,afiliacion);
         boolean val1= dao.buscarCommits(pais,afiliacion);
         boolean val2=dao.buscarEquipos(pais,afiliacion);
         boolean val3=dao.buscarProyectos(pais,afiliacion);
-
-
         return val;
 
     }
@@ -64,7 +61,6 @@ public class AppService{
         String accespoint="users";
         JSONArray arrayUser=gateway.extraerArrayJson(accespoint);
         mapeoUsuario(arrayUser);
-
     }
 
     public void ExtraerExtraInfoUser(){
@@ -77,7 +73,6 @@ public class AppService{
             accespoint="users/"+id;
             JSONObject objectUser=gateway.extraerJsonObject(accespoint);
             mapeoExtraInfoUser(objectUser,i);
-
         }
     }
 
@@ -140,7 +135,6 @@ public class AppService{
                 accespoint = "repos/" + nombrepro+ "/commits/"+id;
                 JSONObject objectUser = gateway.extraerJsonObject(accespoint);
                 mapeoExtraInfoCommits(objectUser,i);
-
             }
 
         }
@@ -226,7 +220,6 @@ public class AppService{
                     añadir.setUser(listaUsuarios.get(j));
                 }
             }
-
            listaCommit.add(añadir);
         }
 
@@ -253,10 +246,7 @@ public class AppService{
             nuevo.setId_pro(id_pro_int);
             nuevo.setProy_fecha_ini(fehca_ini_date);
             nuevo.setProy_fecha_fin(fehca_fin_date);
-
             listaProyectos.add(nuevo);
-
-
         }
 
 
@@ -264,7 +254,7 @@ public class AppService{
 
     public void mapeoExtraInfoCommits(JSONObject object1, int i){
 
-        LinkedHashMap<String,String>author=object1.get("stats");
+        HashMap<String,String>author=object1.get("stats");
 
         String addition=author.get("additions");
         int addition_int=parseInt(addition);
@@ -301,7 +291,6 @@ public class AppService{
     }
 
     public Date parseDate(String fecha){
-
         Date fecha9 = null;
         try {
             fecha9 = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
