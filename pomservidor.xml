@@ -302,9 +302,9 @@
     </build>
 
    <profiles>
-        <!-- run as 'mvn exec:java -Ptest1' -->
+        <!-- run as 'mvn exec:java -Pserver' -->
         <profile>
-            <id>test1</id>
+            <id>server</id>
             <build>
                 <plugins>
                     <plugin>

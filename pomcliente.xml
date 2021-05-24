@@ -297,9 +297,9 @@
     </build>
 
    <profiles>
-        <!-- run as 'mvn exec:java -Ptest1' -->
+        <!-- run as 'mvn exec:java -Pclient' -->
         <profile>
-            <id>test1</id>
+            <id>client</id>
             <build>
                 <plugins>
                     <plugin>
