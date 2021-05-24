@@ -307,7 +307,7 @@
                         <artifactId>exec-maven-plugin</artifactId>
                         <version>1.2.1</version>
                         <configuration>
-                            <mainClass>client.GithubRestClient</mainClass>
+                            <mainClass>cliente.main.Main</mainClass>
                             <arguments>
                                 <argument></argument>
                                 <argument></argument>

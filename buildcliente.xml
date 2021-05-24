@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="help" name="Investigadores">    
 
-        <!-- Not used
-        <property environment="env"/>
-	<property name="source.dir" location="src"/>
-   	<property name="build.dir" location="bin"/>
-	<property name="lib.dir" location="lib"/>
-	-->
-	
-	<property name="server.port" value="1099"/> 
-	<property name="server.IP" value="127.0.0.1"/> 
+
+
+	<property name="server.port" value="1099"/>
+	<property name="server.IP" value="127.0.0.1"/>
 	<property name="server.Name" value="Investigadores"/>
-	<property name="policy.file" location="security/java.policy"/>	
-
-	<!-- example of how classpath can be defined in ant, we will not use it as be inherit from maven
-	<path id="full.classpath">
-          <fileset dir="${lib.dir}">
-            <include name="**/*.jar"/>
-          </fileset>
-          <pathelement location="${build.dir}"/>    	
-	</path>
-
-        this should be referenced with classpathref="full.classpath" from target, instead of classpath="${runtime_classpath}"
-	-->
+	<property name="policy.file" location="security/java.policy"/>
 
 	<!-- Inherited from maven -->
 	<echo message="compile classpath: ${compile_classpath}"/>
@@ -33,8 +17,8 @@
 
 	<target name="client" description="Runs the Client">
 		<java classname="main.java.cliente.main.Main" classpath="${runtime_classpath}" fork="true">
-		  <jvmarg value="-Djava.security.policy=${policy.file}"/>			
-        	  <arg value="${server.IP}"/> 
+		  <jvmarg value="-Djava.security.policy=${policy.file}"/>
+			<arg value="${server.IP}"/>
 	 	  <arg value="${server.port}"/> 
 		  <arg value="${server.Name}"/> 
 		</java>
