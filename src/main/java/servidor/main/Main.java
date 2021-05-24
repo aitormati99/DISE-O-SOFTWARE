@@ -14,13 +14,8 @@ public class Main {
     public static void main(String [] args) throws RemoteException
     {
         String ip = args[0];
-        System.out.println("La IP es: " + ip);
-
-        String port = args[1];
-        System.out.println("El puerto es: " + port);
-
+        String puerto = args[1];
         String serviceName = args[2];
-        System.out.println("El servicename es: " + serviceName);
 
         fachada = new Façada();
 
@@ -30,8 +25,8 @@ public class Main {
         }
         try {
 
-            Registry registry = LocateRegistry.createRegistry(((Integer.valueOf(port))));
-            String name = "//" + ip + ":" + port + "/" + serviceName;
+            Registry registry = LocateRegistry.createRegistry(((Integer.valueOf(puerto))));
+            String name = "//" + ip + ":" + puerto + "/" + serviceName;
 
             System.out.println("El name es: " + name + "\n");
 
