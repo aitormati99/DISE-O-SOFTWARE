@@ -42,10 +42,7 @@ public class AppService{
 
         guardarDao();
 
-        boolean val=dao.buscarUsuarios(pais,afiliacion);
-        boolean val1= dao.buscarCommits(pais,afiliacion);
-        boolean val2=dao.buscarEquipos(pais,afiliacion);
-        boolean val3=dao.buscarProyectos(pais,afiliacion);
+        boolean val=buscarDao(pais, afiliacion);
         return val;
 
     }
@@ -278,6 +275,21 @@ public class AppService{
         dao.guardar(listaProyectos);
         //dao.guardar(listaUsuarios, listaCommit, listaEquipos, listaProyectos);
 
+    }
+
+    public boolean buscarDao(String pais, String afiliacion){
+
+        boolean resultado=false;
+        boolean val=dao.buscarUsuarios(pais,afiliacion);
+        boolean val1= dao.buscarCommits(pais,afiliacion);
+        boolean val2=dao.buscarEquipos(pais,afiliacion);
+        boolean val3=dao.buscarProyectos(pais,afiliacion);
+
+        if(val==true && val1==true && val2==true && val3==true){
+            resultado=true;
+        }
+
+        return resultado;
     }
 
     public int parseInt(String num){
