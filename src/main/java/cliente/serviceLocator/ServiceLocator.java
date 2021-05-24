@@ -1,6 +1,4 @@
 package cliente.serviceLocator;
-
-import servidor.façada.Façada;
 import servidor.façada.IFaçada;
 
 import java.rmi.registry.LocateRegistry;
@@ -49,7 +47,7 @@ public class ServiceLocator {
         }
 
     }
-    //la llamada al servidor, hay que hacer algo de jetty?
+
     public IFaçada getService()
     {
         return stubServer;

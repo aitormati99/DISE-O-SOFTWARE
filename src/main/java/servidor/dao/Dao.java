@@ -158,20 +158,16 @@ public class Dao implements Idao{
         try
         {
             System.out.println("Guardar objetos en la BD...");
-
             //Obtain the current transaction
             tx = pm.currentTransaction();
-
             //Start the transaction
             tx.begin();
 
             for(int i=0; i<listaObjetos.size(); i++) {
                 pm.makePersistent(listaObjetos.get(i));
             }
-
             //End the transaction
             tx.commit();
-
             System.out.println("Los objetos se han guardado satisfactoriamente");
 
         }
@@ -179,9 +175,7 @@ public class Dao implements Idao{
         catch (Exception ex)
         {
             guardado = false;
-
             System.err.println(" $ Error storing objects in the DB: " + ex.getMessage());
-
             ex.printStackTrace();
         }
 
@@ -191,7 +185,6 @@ public class Dao implements Idao{
                 tx.rollback();
             }
         }
-
         return guardado;
     }
 

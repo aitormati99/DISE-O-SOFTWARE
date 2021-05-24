@@ -25,16 +25,7 @@ public class Controller {
 
     }
 
-   /** public ServiceLocator buscar(String pais, String afiliacion) throws RemoteException {
 
-        //nose como poner porque ensi teoricamente es esto pero devuelve fachada
-       // return serviceLocator.buscar(pais,afiliacion);
-        return null;
-
-    }**/
-   //¿? si habría que hacer el return desde SL, creo que para RMI
-   //codigo--> return serviceLocator.getService().buscar();
-   //RESPUESTA: fachada = serviceLocator().getService()
     public boolean buscar(String pais, String afiliacion) throws RemoteException {
         boolean ValBusqueda = false;
         ValBusqueda = fachada.buscar(pais, afiliacion);

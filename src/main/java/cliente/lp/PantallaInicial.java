@@ -77,12 +77,6 @@ public class PantallaInicial extends JFrame{
         JButton btnBuscar = new JButton("Descargar");
         btnBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //¿?creo que esto no deberia de ser un void,
-                // si no un boolean con el retorno,
-                // codigo--> return controller.buscar();
-                //
-                // viendo lo que hizo en el laboratorio
-                //  controller.buscar(lblPais.getText(), lblAfiliacion.getText());
                 String pais=lblPais.getText();
                 String afiliacion=lblAfiliacion.getText();
 

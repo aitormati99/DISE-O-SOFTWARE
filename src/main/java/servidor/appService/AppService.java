@@ -11,7 +11,6 @@ import java.util.LinkedHashMap;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import servidor.dao.Idao;
 import servidor.gateway.Gateway;
 import servidor.dao.Dao;
 
@@ -20,11 +19,8 @@ import servidor.ld.Commit;
 import servidor.ld.Equipo;
 import servidor.ld.Proyecto;
 
-import javax.ws.rs.core.Response;
-
 public class AppService{
 
-    //lo que falta en el gateway como parameto dependera de lo que busquemos
     private Gateway gateway = new Gateway();
 
     private Dao dao = new Dao();
@@ -32,8 +28,6 @@ public class AppService{
     ArrayList<Commit> listaCommit=new ArrayList<Commit>();
     ArrayList<Equipo> listaEquipos=new ArrayList<Equipo>();
     ArrayList<Proyecto> listaProyectos=new ArrayList<Proyecto>();
-    int idEquipo=0;
-
 
     private int id_equipo=0;
 
@@ -45,6 +39,7 @@ public class AppService{
         extraerEquipo();
         extraerCommit();
         extraerMasInfoCommit();
+
         guardarDao();
 
         boolean val=dao.buscarUsuarios(pais,afiliacion);

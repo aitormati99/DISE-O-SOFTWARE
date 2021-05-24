@@ -13,8 +13,6 @@ public class Main {
 
     public static void main(String [] args) throws RemoteException
     {
-
-        //DONDE LLAMAMOS AL METODO BUSCAR DE FACHADA?
         String ip = args[0];
         System.out.println("La IP es: " + ip);
 
