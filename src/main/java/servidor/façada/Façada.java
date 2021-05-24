@@ -33,7 +33,7 @@ public class Façada extends UnicastRemoteObject implements IFaçada  {
 
     }
 
-    public static void main(String[]args)throws RemoteException{
+   /* public static void main(String[]args)throws RemoteException{
 
         //NOSE SI HAY QUE CREAR AQUI LA FAÇADA Y LLAMAR AL METODO BUSCAAAAAAAAAAAR!!!
         if (System.getSecurityManager() == null) {
@@ -57,7 +57,7 @@ public class Façada extends UnicastRemoteObject implements IFaçada  {
             e.printStackTrace();
         }
     }
-
+*/
 
 }
 

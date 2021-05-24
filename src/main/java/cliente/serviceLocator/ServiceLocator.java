@@ -56,16 +56,4 @@ public class ServiceLocator {
     }
 
 
-    public boolean buscar(String pais, String afiliacion) {
-
-        //boolean ValBusqueda = false;
-        //return IFaçada.buscar(pais, afiliacion);
-        return false;
-
-    }
-
-    //YO CREO QUE NO HACE FALTA
-    public void target(){
-        //NO SABEMOOOS COMO SE HACE
-    }
 }
