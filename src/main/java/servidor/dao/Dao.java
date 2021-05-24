@@ -153,7 +153,7 @@ public class Dao implements Idao{
 
     public <T>boolean guardar(List<T> listaObjetos){
 
-        boolean guardado = true;
+        boolean guardado = false;
 
         try
         {
@@ -169,6 +169,7 @@ public class Dao implements Idao{
             //End the transaction
             tx.commit();
             System.out.println("Los objetos se han guardado satisfactoriamente");
+            guardado=true;
 
         }
 
