@@ -17,13 +17,10 @@ public class Façada extends UnicastRemoteObject implements IFaçada  {
 
     private AppService appservice=new AppService();
 
-
     public Façada() throws RemoteException {
-
 
         super();
     }
-
 
     @Override
     public boolean buscar(String pais, String afiliacion) throws RemoteException {

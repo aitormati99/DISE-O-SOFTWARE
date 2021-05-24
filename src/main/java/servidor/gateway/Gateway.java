@@ -9,6 +9,10 @@ import javax.ws.rs.core.Response;
 
 public class Gateway implements IGateway{
 
+    /**
+     private Object HashMap;
+     private Object String;
+     */
     public JSONArray extraerArrayJson(String accessPoint){
 
         JSONArray array = null;
@@ -19,6 +23,14 @@ public class Gateway implements IGateway{
             // Parse the response as JsonArray
             array = res1.readEntity(JSONArray.class);
             //System.out.println(array.size());
+            /** ArrayList<HashMap<String,Object>> info = new ArrayList<>();
+             array = res1.readEntity(JSONArray.class);
+             System.out.println(array.size());
+             for(int i=0; i<array.size(); ++i)
+             {
+             info.add(HashMap<String, Object>) array.get(i);
+             }
+             */
 
         } catch (Exception e) {
 
@@ -26,6 +38,7 @@ public class Gateway implements IGateway{
         }
 
 		return array;
+        /**return info */
     }
 
     public JSONObject extraerJsonObject(String accessPoint){
