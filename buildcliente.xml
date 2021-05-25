@@ -6,7 +6,7 @@
 	<property name="server.port" value="1099"/>
 	<property name="server.IP" value="127.0.0.1"/>
 	<property name="server.Name" value="Investigadores"/>
-	<property name="policy.file" location="security/java.policy"/>
+	<property name="java.policyClient" location="src/main/resources/securityCliente/java.policy" />
 
 	<!-- Inherited from maven -->
 	<echo message="compile classpath: ${compile_classpath}"/>

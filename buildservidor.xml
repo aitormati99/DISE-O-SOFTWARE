@@ -10,10 +10,10 @@
        <property name="export.file" value="helloServer.jar"/>
        -->
        
-        <property name="server.port" value="1099"/> 
+    <property name="server.port" value="1099"/> 
 	<property name="server.IP" value="127.0.0.1"/>
 	<property name="server.Name" value="InvestigadoresServidor"/>	
-	<property name="policy.file" location="security/java.policy"/>	
+	<property name="java.policyServer" location="src/main/resources/securityServidor/java.policy" />
 
 	<!-- Inherited from maven -->
 	<echo message="compile classpath: ${compile_classpath}"/>
