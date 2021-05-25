@@ -208,11 +208,11 @@ public class AppService{
             añadir.setId_commit(id_commit);
             for(int j=0;j<listaUsuarios.size();j++) {
 
-                if(username.equals(listaUsuarios.get(j).getUser_name())) {
+               if(username.equals(listaUsuarios.get(j).getUser_name())) {
                     añadir.setUser(listaUsuarios.get(j));
                 }
             }
-           listaCommit.add(añadir);
+          listaCommit.add(añadir);
         }
 
     }
@@ -265,6 +265,8 @@ public class AppService{
                 }
             }
         }
+
+
     }
 
     public void guardarDao(){

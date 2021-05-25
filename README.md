@@ -2,3 +2,8 @@
 
 Proyecto para la asignatura de Diseño de Sofware en el que hemos desarrollado un proyecto para descargar la información de los Investigadores de la API de Github.
 Este proyecto ha sido creado para dar solución a la necesidad de Asier Minondo para analizar el impacto de la Covid-19 en los proyectos de los investigadores. 
+
+1. mvn compile
+2. mvn run: jetty
+3. mvn exec: java -Pclient
+4. mvn exec: java -Pserver
