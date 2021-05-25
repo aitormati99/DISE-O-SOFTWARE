@@ -17,7 +17,7 @@ public class Façada extends UnicastRemoteObject implements IFaçada  {
     private AppService appservice=new AppService();
 
     public Façada() throws RemoteException {
-        //A
+
         super();
     }
 
