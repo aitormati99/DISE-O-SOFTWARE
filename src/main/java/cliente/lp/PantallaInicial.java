@@ -102,7 +102,6 @@ public class PantallaInicial extends JFrame{
 
     public static void main(String args[]) throws RemoteException {
 
-        controller=new Controller(args);
         PantallaInicial pantalla = new PantallaInicial(controller);
         pantalla.setVisible(true);
         pantalla.setResizable(false);
