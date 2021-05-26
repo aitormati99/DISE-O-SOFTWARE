@@ -195,7 +195,7 @@ public class AppService{
     }
 
     public void mapeoCommits(JSONArray array,Proyecto hecho){
-
+        /*
         for(int i=0; i<array.size();i++){
 
             HashMap<String, String> object1 = (HashMap<String, String>)array.get(i);
@@ -214,6 +214,8 @@ public class AppService{
             }
           listaCommit.add(añadir);
         }
+
+    */
 
     }
 
@@ -246,6 +248,7 @@ public class AppService{
 
     public void mapeoExtraInfoCommits(JSONObject object1, int i){
 
+        /*
         HashMap<String,JSONObject>author=object1.get("stats");
 
         String addition=author.get("additions");
@@ -265,7 +268,7 @@ public class AppService{
                 }
             }
         }
-
+    */
 
     }
 

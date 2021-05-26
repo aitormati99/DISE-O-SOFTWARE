@@ -22,7 +22,14 @@ public class PantallaInicial extends JFrame{
     /**
      * Create the frame.
      */
+
     public PantallaInicial(Controller controller) {
+
+        PantallaInicial.controller = controller;
+        iniciar();
+
+    }
+   public void iniciar(){
 
         //¿?Porque no hacemos codigo
         // para poder utilizar toda la API disponible en el Controlodor
@@ -58,21 +65,6 @@ public class PantallaInicial extends JFrame{
         lblPais.setBounds(105, 244, 137, 20);
         contentPane.add(lblPais);
 
-        JButton btnAadir = new JButton("A\u00F1adir");
-        btnAadir.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
-        btnAadir.setBounds(650, 161, 115, 29);
-        contentPane.add(btnAadir);
-
-        JButton button = new JButton("A\u00F1adir");
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
-        button.setBounds(650, 240, 115, 29);
-        contentPane.add(button);
 
         JButton btnBuscar = new JButton("Descargar");
         btnBuscar.addActionListener(new ActionListener() {
@@ -106,5 +98,13 @@ public class PantallaInicial extends JFrame{
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 35));
         lblNewLabel.setBounds(228, 16, 461, 70);
         contentPane.add(lblNewLabel);
+    }
+
+    public static void main(String args[]) throws RemoteException {
+
+        controller=new Controller(args);
+        PantallaInicial pantalla = new PantallaInicial(controller);
+        pantalla.setVisible(true);
+        pantalla.setResizable(false);
     }
 }

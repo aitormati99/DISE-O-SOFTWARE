@@ -22,6 +22,9 @@ public class Controller {
         //Pasarle al frame el controller
         PantallaInicial frame = new PantallaInicial(this);
         frame.setVisible(true);
+        frame.setResizable(false);
+
+
 
     }
 

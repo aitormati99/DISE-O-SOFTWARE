@@ -288,26 +288,7 @@
     </build>
 
    <profiles>
-        <!-- run as 'mvn exec:java -Pserver' -->
-        <profile>
-            <id>server</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>1.2.1</version>
-                        <configuration>
-                            <mainClass>servidor.main.Main</mainClass>
-                            <arguments>
-                                <argument>${server.hostname}</argument>
-                                <argument>${server.port}</argument>
-                            </arguments>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+
 
         <profile>
             <!-- run as 'mvn exec:java -Pclient' -->
@@ -319,7 +300,7 @@
                         <artifactId>exec-maven-plugin</artifactId>
                         <version>1.2.1</version>
                         <configuration>
-                            <mainClass>cliente.main.Main</mainClass>
+                            <mainClass>cliente.lp.PantallaInicial</mainClass>
                             <arguments>
                                 <argument>${server.hostname}</argument>
                                 <argument>${server.port}</argument>
