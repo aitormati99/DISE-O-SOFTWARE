@@ -200,7 +200,7 @@ public class AppService{
 
             HashMap<String, String> object1 = (HashMap<String, String>)array.get(i);
             //HashMap<String, String> autor = (HashMap<String, String>)object1.get("author");
-            LinkedHashMap<String,String>author=object1.get("author");
+            HashMap<String,JSONObject>author=object1.get("author");
             String username=author.get("login");
             String id_commit=object1.get("sha");
 
@@ -246,7 +246,7 @@ public class AppService{
 
     public void mapeoExtraInfoCommits(JSONObject object1, int i){
 
-        HashMap<String,String>author=object1.get("stats");
+        HashMap<String,JSONObject>author=object1.get("stats");
 
         String addition=author.get("additions");
         int addition_int=parseInt(addition);
