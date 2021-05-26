@@ -9,12 +9,13 @@ import java.rmi.RemoteException;
 
 public class Main {
 
-    private static Controller controller;
+    //private static Controller controller;
 
     public static void main(String [] args) throws RemoteException
     {
 
-       controller= new Controller(args);
+       //controller= new Controller(args);
+        new Controller(args);
     }
 
 }

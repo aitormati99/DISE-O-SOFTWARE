@@ -25,8 +25,9 @@ public class PantallaInicial extends JFrame{
 
     public PantallaInicial(Controller controller) {
 
-        PantallaInicial.controller = controller;
+        this.controller = controller;
         iniciar();
+        this.setVisible(true);
 
     }
    public void iniciar(){
@@ -100,10 +101,10 @@ public class PantallaInicial extends JFrame{
         contentPane.add(lblNewLabel);
     }
 
-    public static void main(String args[]) throws RemoteException {
+    /*public static void main(String args[]) throws RemoteException {
 
         PantallaInicial pantalla = new PantallaInicial(controller);
         pantalla.setVisible(true);
         pantalla.setResizable(false);
-    }
+    }*/
 }

@@ -300,7 +300,7 @@
                         <artifactId>exec-maven-plugin</artifactId>
                         <version>1.2.1</version>
                         <configuration>
-                            <mainClass>cliente.lp.PantallaInicial</mainClass>
+                            <mainClass>cliente.main.Main</mainClass>
                             <arguments>
                                 <argument>${server.hostname}</argument>
                                 <argument>${server.port}</argument>

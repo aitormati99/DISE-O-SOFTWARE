@@ -17,13 +17,12 @@ public class Controller {
         //creamos el servicelocator y el gui
         serviceLocator = new ServiceLocator();
         serviceLocator.setService(args);
-        fachada = serviceLocator.getService();
+        //fachada = serviceLocator.getService();
 
         //Pasarle al frame el controller
         PantallaInicial frame = new PantallaInicial(this);
-        frame.setVisible(true);
-        frame.setResizable(false);
-
+        //frame.setVisible(true);
+        //frame.setResizable(false);
 
 
     }
@@ -31,8 +30,8 @@ public class Controller {
 
     public boolean buscar(String pais, String afiliacion) throws RemoteException {
         boolean ValBusqueda = false;
-        ValBusqueda = fachada.buscar(pais, afiliacion);
-
+        //ValBusqueda = fachada.buscar(pais, afiliacion);
+        ValBusqueda = serviceLocator.getService().buscar(pais, afiliacion);
         return ValBusqueda;
     }
 
