@@ -185,11 +185,15 @@ public class Dao implements Idao{
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
+
+            if (pm != null && !pm.isClosed()) {
+                pm.close();
+            }
         }
         return guardado;
     }
 
-    //¿?Para cerrar la BD, + deberia de ser private sino cerramos la BD desde fuera, no?
+    /*No hace falta, ya lo hacemos en el finaly
     public void cerrarBD() {
 
         if (tx != null && tx.isActive()) {
@@ -201,5 +205,5 @@ public class Dao implements Idao{
             pm.close();
             // ATTENTION -  Datanucleus detects that the objects in memory were changed and they are flushed to DB
         }
-    }
+    }*/
 }
