@@ -14,17 +14,19 @@ public class Façada extends UnicastRemoteObject implements IFaçada  {
 
     //private static final long serialVersionUID = 1L;
 
-    private AppService appservice=new AppService();
+    //private AppService appservice=new AppService();
+    private AppService appservice;
 
     public Façada() throws RemoteException {
 
         super();
+        this.appservice =new AppService();
     }
 
     @Override
     public boolean buscar(String pais, String afiliacion) throws RemoteException {
 
-        boolean ValBusqueda = false;
+        //boolean ValBusqueda = false;
         return appservice.buscar(pais, afiliacion);
 
     }

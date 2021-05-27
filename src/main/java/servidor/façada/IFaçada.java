@@ -6,5 +6,5 @@ import java.rmi.RemoteException;
 
 public interface IFaçada extends Remote{
 
-    public boolean buscar(String pais, String afiliacion)  throws RemoteException;
+    boolean buscar(String pais, String afiliacion)  throws RemoteException;
 }

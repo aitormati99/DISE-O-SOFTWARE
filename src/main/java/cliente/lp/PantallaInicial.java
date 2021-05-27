@@ -17,7 +17,6 @@ public class PantallaInicial extends JFrame{
     private JTextField Afiliacion;
     private JTextField textField;
 
-    //private static Controller controller;
     private Controller controller;
 
     /**
