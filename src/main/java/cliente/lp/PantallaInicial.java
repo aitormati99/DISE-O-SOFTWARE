@@ -17,7 +17,8 @@ public class PantallaInicial extends JFrame{
     private JTextField Afiliacion;
     private JTextField textField;
 
-    private static Controller controller;
+    //private static Controller controller;
+    private Controller controller;
 
     /**
      * Create the frame.
@@ -31,10 +32,7 @@ public class PantallaInicial extends JFrame{
 
     }
    public void iniciar(){
-
-        //¿?Porque no hacemos codigo
         // para poder utilizar toda la API disponible en el Controlodor
-        //        this.controller = controller;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 861, 636);
         contentPane = new JPanel();

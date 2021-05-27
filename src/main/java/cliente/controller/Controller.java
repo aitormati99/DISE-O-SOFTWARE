@@ -20,7 +20,7 @@ public class Controller {
         //fachada = serviceLocator.getService();
 
         //Pasarle al frame el controller
-        PantallaInicial frame = new PantallaInicial(this);
+        new PantallaInicial(this);
         //frame.setVisible(true);
         //frame.setResizable(false);
 
