@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 public class Controller {
 
     private ServiceLocator serviceLocator = null;
-    private IFaçada fachada;
+    //private IFaçada fachada;
 
     public Controller(String [] args) throws RemoteException
     {
