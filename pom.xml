@@ -308,8 +308,9 @@
                         <configuration>
                             <mainClass>cliente.main.Main</mainClass>
                             <arguments>
-                                <argument>${server.hostname}</argument>
+                                <argument>${server.IP}</argument>
                                 <argument>${server.port}</argument>
+                                <argument>${server.hostname}</argument>
                             </arguments>
                         </configuration>
                     </plugin>
