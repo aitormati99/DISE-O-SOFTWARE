@@ -1,5 +1,5 @@
 package cliente.serviceLocator;
-import servidor.façada.IFaçada;
+import servidor.remote.IFachada;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -7,7 +7,7 @@ import java.rmi.registry.Registry;
 
 public class ServiceLocator {
 
-    private IFaçada stubServer = null;
+    private IFachada stubServer = null;
     private Registry registry;
 
     public ServiceLocator()
@@ -36,7 +36,7 @@ public class ServiceLocator {
             this.registry = LocateRegistry.getRegistry(((Integer.valueOf(puerto))));
             String name = "//" + ip+ ":" + puerto + "/" + serviceName;
             //stubServer = (IServer) java.rmi.Naming.lookup(name);
-            this.stubServer = (IFaçada) registry.lookup(name);
+            this.stubServer = (IFachada) registry.lookup(name);
 
 
         }
@@ -48,7 +48,7 @@ public class ServiceLocator {
 
     }
 
-    public IFaçada getService()
+    public IFachada getService()
     {
         return stubServer;
     }

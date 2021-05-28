@@ -1,10 +1,9 @@
-package servidor.façada;
+package servidor.remote;
 
-import servidor.appService.AppService;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface IFaçada extends Remote{
+public interface IFachada extends Remote{
 
     boolean buscar(String pais, String afiliacion)  throws RemoteException;
 }

@@ -1,128 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>es.deusto</groupId>
-    <artifactId>Investigadores</artifactId>
+    <groupId>org.example</groupId>
+    <artifactId>ParteCliente</artifactId>
     <packaging>jar</packaging>
     <version>3.0</version>
 
-    <name>Investigadores</name>
 
     <properties>
-        <!--<maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target> -->
-        <config.files.dir>src/main/resources</config.files.dir>
+        <config.files.dir>src/cliente/resources</config.files.dir>
         <encoding>UTF-8</encoding>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <server.hostname>127.0.0.1</server.hostname>
-        <server.port>8080</server.port>
+        <server.IP>127.0.0.1</server.IP>
+        <server.Port>1099</server.Port>
+        <server.Name>Server</server.Name>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-core</artifactId>
-            <version>[5.1.6, 5.9)</version>
-        </dependency>
-        <dependency>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-api-jdo</artifactId>
-            <version>[5.1.4, 5.9)</version>
-        </dependency>
-        <dependency>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-rdbms</artifactId>
-            <version>[5.1.6, 5.9)</version>
-        </dependency>
-        <dependency>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>javax.jdo</artifactId>
-            <version>[3.2.0-m8, )</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.45</version>
-        </dependency>
+
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>[1.2.17, )</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.ws.rs</groupId>
-            <artifactId>jakarta.ws.rs-api</artifactId>
-            <version>2.1.5</version>
-        </dependency>
 
-        <dependency>
-            <groupId>javax.activation</groupId>
-            <artifactId>activation</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish.jersey.core</groupId>
-            <artifactId>jersey-server</artifactId>
-            <version>2.29</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-core</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-impl</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-servlet</artifactId>
-            <version>2.29</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish.jersey.core</groupId>
-            <artifactId>jersey-common</artifactId>
-            <version>2.29</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish.jersey.inject</groupId>
-            <artifactId>jersey-hk2</artifactId>
-            <version>2.29</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <version>2.29</version>
-        </dependency>
-        
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -130,35 +33,24 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-servlet</artifactId>
-            <version>2.29</version>
-        </dependency>
+
 
     </dependencies>
 
     <build>
-        <sourceDirectory>src/main/java</sourceDirectory>
-        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <sourceDirectory>src/</sourceDirectory>
+        <testSourceDirectory>src/</testSourceDirectory>
 
         <resources>
-            <resource>
-                <directory>${config.files.dir}</directory>
-                <includes>
-                    <include>**/*.jdo</include>
-                    <include>**/*.orm</include>
-                    <include>**/*.properties</include>
-                </includes>
-            </resource>
+          <resource>
+            <directory>${config.files.dir}</directory>
+          </resource>
         </resources>
 
         <plugins>
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.0.0</version>
-
-
                 <configuration>
                     <filesets>
                         <fileset>
@@ -183,42 +75,19 @@
             </plugin>
 
             <plugin>
-                <groupId>org.datanucleus</groupId>
-                <artifactId>datanucleus-maven-plugin</artifactId>
-                <version>5.2.1</version>
-                <configuration>
-                    <log4jConfiguration>${config.files.dir}/log4j.properties</log4jConfiguration>
-                    <verbose>true</verbose>
-                    <props>${config.files.dir}/datanucleus.properties</props>
-                </configuration>
-
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>enhance</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
 
                 <configuration>
-                    <mainClass>Main</mainClass>
-                    <systemProperties>
-                        <systemProperty>
-                            <key>log4j.configuration</key>
-                            <value>file:${config.files.dir}/log4j.properties</value>
-                        </systemProperty>
-                    </systemProperties>
+                    <mainClass>cliente.controller.Controller</mainClass>
+                    <arguments>
+                      <argument>${server.IP}</argument>
+                      <argument>${server.Port}</argument>
+                      <argument>${server.Name}</argument>
+                    </arguments>
                 </configuration>
-
             </plugin>
-
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
@@ -227,7 +96,6 @@
                     </descriptors>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -237,88 +105,6 @@
                     <nohelp>true</nohelp>
                 </configuration>
             </plugin>
-
-            <plugin>
-           <!-- Read info at                                                                            
-                 https://maven.apache.org/plugins/maven-antrun-plugin/index.html                         
-                 https://maven.apache.org/plugins/maven-antrun-plugin/examples/classpaths.html           
-                 https://maven.apache.org/plugins/maven-antrun-plugin/usage.html
-                                                                                       
-                 In short, Maven-ant run plugin can be used to launch ant targets from maven             
-            -->
-
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-antrun-plugin</artifactId>
-              <version>1.8</version>
-
-                <executions>
-                    <execution>
-                        <id>run-ant</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-
-                                <property name="compile_classpath" refid="maven.compile.classpath"/>
-                                <property name="runtime_classpath" refid="maven.runtime.classpath"/>
-                                <property name="test_classpath" refid="maven.test.classpath"/>
-                                <property name="plugin_classpath" refid="maven.plugin.classpath"/>
-
-                                <ant antfile="${basedir}/build.xml">
-                                    <target name="server"/>
-                                </ant>
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-
-              <dependencies>
-                 <dependency>
-                    <groupId>commons-net</groupId>
-                    <artifactId>commons-net</artifactId>
-                    <version>1.4.1</version>
-                 </dependency>
-
-                 <dependency>
-                   <groupId>org.apache.ant</groupId>
-                   <artifactId>ant-commons-net</artifactId>
-                   <version>1.8.1</version>
-                  </dependency>
-               </dependencies>
-
-           </plugin>
-
         </plugins>
     </build>
-
-   <profiles>
-
-
-        <profile>
-            <!-- run as 'mvn exec:java -Pclient' -->
-            <id>client</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>1.2.1</version>
-                        <configuration>
-                            <mainClass>cliente.main.Main</mainClass>
-                            <arguments>
-                                <argument>${server.IP}</argument>
-                                <argument>${server.port}</argument>
-                                <argument>${server.hostname}</argument>
-                            </arguments>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-    </profiles>
-
-
 </project>

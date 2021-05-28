@@ -3,7 +3,6 @@ package cliente.controller;
 
 import cliente.lp.PantallaInicial;
 import cliente.serviceLocator.ServiceLocator;
-import servidor.façada.IFaçada;
 
 import java.rmi.RemoteException;
 
@@ -33,6 +32,12 @@ public class Controller {
         //ValBusqueda = fachada.buscar(pais, afiliacion);
         ValBusqueda = serviceLocator.getService().buscar(pais, afiliacion);
         return ValBusqueda;
+    }
+
+    public static void main(String [] args) throws RemoteException
+    {
+        //controller= new Controller(args);
+        new Controller(args);
     }
 
 
