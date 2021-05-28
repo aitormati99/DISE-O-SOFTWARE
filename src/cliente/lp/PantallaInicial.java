@@ -1,27 +1,34 @@
 package cliente.lp;
 import cliente.controller.Controller;
+import java.awt.BorderLayout;
 
 import java.awt.EventQueue;
 
-
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.rmi.RemoteException;
+import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
-public class PantallaInicial extends JFrame{
+public class PantallaInicial extends JFrame {
 
     private JPanel contentPane;
-    private JTextField Afiliacion;
-    private JTextField textField;
+    private JTextField txtAfiliacion;
+    private JTextField txtPais;
 
     private Controller controller;
-
     /**
      * Create the frame.
      */
+
 
     public PantallaInicial(Controller controller) {
 
@@ -30,45 +37,31 @@ public class PantallaInicial extends JFrame{
         this.setVisible(true);
 
     }
-   public void iniciar(){
-        // para poder utilizar toda la API disponible en el Controlodor
+    public void iniciar() {
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 861, 636);
+        setBounds(100, 100, 631, 523);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
-
-        Afiliacion = new JTextField();
-        Afiliacion.setBounds(315, 158, 201, 39);
-        contentPane.add(Afiliacion);
-        Afiliacion.setColumns(10);
-
-        JLabel label = new JLabel("");
-        label.setBounds(0, 0, 69, 20);
-        contentPane.add(label);
-
-        textField = new JTextField();
-        textField.setColumns(10);
-        textField.setBounds(315, 237, 201, 39);
-        contentPane.add(textField);
-
+        
         JLabel lblAfiliacion = new JLabel("AFILIACION");
         lblAfiliacion.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblAfiliacion.setBounds(105, 165, 137, 20);
         contentPane.add(lblAfiliacion);
-
+        
         JLabel lblPais = new JLabel("PAIS");
         lblPais.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblPais.setBounds(105, 244, 137, 20);
         contentPane.add(lblPais);
-
-
-        JButton btnBuscar = new JButton("Descargar");
-        btnBuscar.addActionListener(new ActionListener() {
+        
+        JButton btnDescargar = new JButton("Descargar");
+        btnDescargar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String pais=lblPais.getText();
-                String afiliacion=lblAfiliacion.getText();
+
+                String pais=txtPais.getText();
+                String afiliacion=txtAfiliacion.getText();
 
                 Boolean validacion = false;
                 //pasar al controller pais y afiliacion
@@ -89,19 +82,27 @@ public class PantallaInicial extends JFrame{
 
             }
         });
-        btnBuscar.setBounds(359, 327, 115, 29);
-        contentPane.add(btnBuscar);
-
+        btnDescargar.setBounds(359, 327, 115, 29);
+        contentPane.add(btnDescargar);
+        
         JLabel lblNewLabel = new JLabel("DESARROLLADORES");
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 35));
         lblNewLabel.setBounds(228, 16, 461, 70);
         contentPane.add(lblNewLabel);
+        
+        txtAfiliacion = new JTextField();
+        txtAfiliacion.setBounds(273, 164, 243, 29);
+        contentPane.add(txtAfiliacion);
+        txtAfiliacion.setColumns(10);
+        
+        txtPais = new JTextField();
+        txtPais.setBounds(271, 243, 245, 29);
+        contentPane.add(txtPais);
+        txtPais.setColumns(10);
+        
+        JLabel lblNewLabel_1 = new JLabel("New label");
+        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Imagen2.png"));
+        lblNewLabel_1.setBounds(-55, -56, 1384, 1159);
+        contentPane.add(lblNewLabel_1);
     }
-
-    /*public static void main(String args[]) throws RemoteException {
-
-        PantallaInicial pantalla = new PantallaInicial(controller);
-        pantalla.setVisible(true);
-        pantalla.setResizable(false);
-    }*/
 }
