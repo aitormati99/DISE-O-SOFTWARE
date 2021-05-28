@@ -9,11 +9,10 @@
 
 
     <properties>
-        <config.files.dir>src/cliente/resources</config.files.dir>
         <encoding>UTF-8</encoding>
         <server.IP>127.0.0.1</server.IP>
         <server.Port>1099</server.Port>
-        <server.Name>Server</server.Name>
+        <server.Name>HelloServer</server.Name>
     </properties>
 
     <dependencies>
@@ -41,11 +40,7 @@
         <sourceDirectory>src/</sourceDirectory>
         <testSourceDirectory>src/</testSourceDirectory>
 
-        <resources>
-          <resource>
-            <directory>${config.files.dir}</directory>
-          </resource>
-        </resources>
+
 
         <plugins>
             <plugin>
@@ -65,6 +60,76 @@
             </plugin>
 
             <plugin>
+                <!-- Read info at
+                      https://maven.apache.org/plugins/maven-antrun-plugin/index.html
+                      https://maven.apache.org/plugins/maven-antrun-plugin/examples/classpaths.html
+                      https://maven.apache.org/plugins/maven-antrun-plugin/usage.html
+
+                      In short, Maven-ant run plugin can be used to launch ant targets from maven
+                 -->
+
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.0.0</version>
+
+                <executions>
+                    <execution>
+                        <!-- Configuration of ant target execution -->
+
+                        <id>myAntRunner</id>
+
+                        <!-- This specifies ant target will be executed in maven package phase
+                                    Option 1 to run is to call
+                                    mvn antrun:run package
+                                    Option 2 to run is to call
+                                    mvn package
+                               -->
+
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+
+                        <configuration>
+
+                            <target>
+
+                                <!-- properties can be passed to ant -->
+
+                                <property name="compile_classpath" refid="maven.compile.classpath"/>
+                                <property name="runtime_classpath" refid="maven.runtime.classpath"/>
+                                <property name="test_classpath" refid="maven.test.classpath"/>
+                                <property name="plugin_classpath" refid="maven.plugin.classpath"/>
+
+                                <ant antfile="${basedir}/build.xml">
+                                    <target name="client"/>
+                                </ant>
+
+                            </target>
+
+                        </configuration>
+                    </execution>
+                </executions>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>commons-net</groupId>
+                        <artifactId>commons-net</artifactId>
+                        <version>1.4.1</version>
+                    </dependency>
+
+                    <dependency>
+                        <groupId>org.apache.ant</groupId>
+                        <artifactId>ant-commons-net</artifactId>
+                        <version>1.8.1</version>
+                    </dependency>
+                </dependencies>
+
+
+
+            </plugin>
+
+            <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
                 <configuration>
@@ -74,20 +139,7 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
 
-                <configuration>
-                    <mainClass>cliente.controller.Controller</mainClass>
-                    <arguments>
-                      <argument>${server.IP}</argument>
-                      <argument>${server.Port}</argument>
-                      <argument>${server.Name}</argument>
-                    </arguments>
-                </configuration>
-            </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
