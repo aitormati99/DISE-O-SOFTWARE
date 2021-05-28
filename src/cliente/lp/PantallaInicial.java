@@ -4,19 +4,12 @@ import java.awt.BorderLayout;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
+import java.rmi.RemoteException;
 
 public class PantallaInicial extends JFrame {
 
@@ -84,6 +77,8 @@ public class PantallaInicial extends JFrame {
         });
         btnDescargar.setBounds(359, 327, 115, 29);
         contentPane.add(btnDescargar);
+
+
         
         JLabel lblNewLabel = new JLabel("DESARROLLADORES");
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 35));
@@ -101,7 +96,8 @@ public class PantallaInicial extends JFrame {
         txtPais.setColumns(10);
         
         JLabel lblNewLabel_1 = new JLabel("New label");
-        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Imagen2.png"));
+        lblNewLabel_1.setIcon(new ImageIcon(PantallaInicial.class.getResource("/icono.png")));
+
         lblNewLabel_1.setBounds(-55, -56, 1384, 1159);
         contentPane.add(lblNewLabel_1);
     }

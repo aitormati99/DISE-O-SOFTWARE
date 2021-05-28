@@ -9,6 +9,7 @@
 
 
     <properties>
+        <config.files.dir>src/clientE/resources</config.files.dir>
         <encoding>UTF-8</encoding>
         <server.IP>127.0.0.1</server.IP>
         <server.Port>1099</server.Port>
@@ -40,7 +41,11 @@
         <sourceDirectory>src/</sourceDirectory>
         <testSourceDirectory>src/</testSourceDirectory>
 
-
+        <resources>
+            <resource>
+                <directory>${config.files.dir}</directory>
+            </resource>
+        </resources>
 
         <plugins>
             <plugin>
