@@ -15,7 +15,6 @@ public class ServiceLocator {
 
     public void setService(String[] args) {
 
-        System.out.println("SETSERVICE");
         if (args.length != 3)
         {
             System.out.println("uso: java [policy] [codebase] cliente.Cliente [host] [port] [server]");
@@ -49,12 +48,7 @@ public class ServiceLocator {
 
     }
 
-    public IFachada getService()
-    {
-
-        System.out.println("GETSERVICE");
-        return stubServer;
-    }
+    public IFachada getService(){   return stubServer;  }
 
 
 }

@@ -28,7 +28,7 @@ public class Controller {
 
 
     public boolean buscar(String pais, String afiliacion) throws RemoteException {
-        System.out.println("BUSCAR DE CONTROLLER");
+
         boolean ValBusqueda = false;
         //ValBusqueda = fachada.buscar(pais, afiliacion);
         ValBusqueda = serviceLocator.getService().buscar(pais, afiliacion);
@@ -37,7 +37,6 @@ public class Controller {
 
     public static void main(String [] args) throws RemoteException
     {
-        //controller= new Controller(args);
         new Controller(args);
     }
 
